@@ -196,4 +196,8 @@ Public Class frmStockDashboard
         frmPurchaseOrder.ShowDialog()
 
     End Sub
+
+    Private Sub frmStockDashboard_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        frmDashboard.Show()
+    End Sub
 End Class

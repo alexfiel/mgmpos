@@ -11,10 +11,10 @@ Module reports
     End Sub
 
     Public Sub retrieveRemittance()
-
+        MsgBox(Gremittanceid)
         Try
             dbConnection()
-            sql = "SELECT a.*,b.*,c.* from remiitance as a left join remittancedetails as b on a.remiitanceid = b.remiitanceid right join employees_database as c on a.userid = c.Employee_ID where a.remiitanceid=@remitid;"
+            sql = "SELECT distinct a.*,b.*,c.* from remiitance as a left join remittancedetails as b on a.remiitanceid = b.remiitanceid right join employees_database as c on a.userid = c.Employee_ID where a.remiitanceid=@remitid;"
 
             cmd = New MySqlCommand(sql, conn)
             With cmd
@@ -31,8 +31,8 @@ Module reports
             ' reportsDGV.DataSource = dt
             Dim report As New remittancereport
             report.SetDataSource(dt)
-            frmReport_product.CrystalReportViewer1.ReportSource = report
-            frmReport_product.CrystalReportViewer1.Refresh()
+            frmReport_product.GBRemittance.ReportSource = report
+            frmReport_product.GBRemittance.Refresh()
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally

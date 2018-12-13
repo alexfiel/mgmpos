@@ -191,7 +191,7 @@ Public Class frmRemit
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         'rptRemitance()
-        Gremittanceid = TextBox1.Text
+        'Gremittanceid = TextBox1.Text
         retrieveRemittance()
         frmReport.ShowDialog()
 

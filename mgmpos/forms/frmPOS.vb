@@ -279,7 +279,9 @@ Public Class frmPOS
     End Sub
 
     Private Sub cmdRemit_Click(sender As Object, e As EventArgs) Handles cmdRemit.Click
-        frmReport_product.ShowDialog()
+        frmSalesReport.gbSales.Visible = True
+        frmSalesReport.GBRemittance.Visible = False
+        frmSalesReport.ShowDialog()
 
     End Sub
 
@@ -314,5 +316,9 @@ Public Class frmPOS
     Private Sub btnRemit_Click(sender As Object, e As EventArgs) Handles btnRemit.Click
         getUnremitted()
 
+    End Sub
+
+    Private Sub frmPOS_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        End
     End Sub
 End Class

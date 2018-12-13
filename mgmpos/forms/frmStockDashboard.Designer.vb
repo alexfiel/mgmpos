@@ -23,7 +23,9 @@ Partial Class frmStockDashboard
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStockDashboard))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.cmdStockOut = New System.Windows.Forms.Button()
@@ -91,7 +93,9 @@ Partial Class frmStockDashboard
         Me.Label23 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.PnlStockIn.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -103,10 +107,17 @@ Partial Class frmStockDashboard
         Me.GroupBox4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.Panel1.Controls.Add(Me.PictureBox2)
+        Me.Panel1.Controls.Add(Me.PictureBox3)
+        Me.Panel1.Controls.Add(Me.PictureBox10)
         Me.Panel1.Controls.Add(Me.Button5)
         Me.Panel1.Controls.Add(Me.Button4)
         Me.Panel1.Controls.Add(Me.Button3)
@@ -118,14 +129,27 @@ Partial Class frmStockDashboard
         Me.Panel1.Size = New System.Drawing.Size(200, 556)
         Me.Panel1.TabIndex = 0
         '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.Button5.Location = New System.Drawing.Point(3, 79)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(191, 60)
+        Me.Button5.TabIndex = 4
+        Me.Button5.Text = "Create Purchase Order"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button5.UseVisualStyleBackColor = False
+        '
         'Button4
         '
+        Me.Button4.BackColor = System.Drawing.Color.MediumSeaGreen
         Me.Button4.Location = New System.Drawing.Point(3, 144)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(191, 60)
         Me.Button4.TabIndex = 3
         Me.Button4.Text = "Main Menu"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button4.UseVisualStyleBackColor = False
         '
         'Button3
         '
@@ -149,12 +173,14 @@ Partial Class frmStockDashboard
         '
         'cmdStockIn
         '
+        Me.cmdStockIn.BackColor = System.Drawing.Color.MediumSeaGreen
         Me.cmdStockIn.Location = New System.Drawing.Point(3, 12)
         Me.cmdStockIn.Name = "cmdStockIn"
         Me.cmdStockIn.Size = New System.Drawing.Size(191, 60)
         Me.cmdStockIn.TabIndex = 0
-        Me.cmdStockIn.Text = "STOCK IN"
-        Me.cmdStockIn.UseVisualStyleBackColor = True
+        Me.cmdStockIn.Text = "Stock In"
+        Me.cmdStockIn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmdStockIn.UseVisualStyleBackColor = False
         '
         'PnlStockIn
         '
@@ -815,20 +841,44 @@ Partial Class frmStockDashboard
         Me.Label19.TabIndex = 50
         Me.Label19.Text = "Date:"
         '
-        'Button5
+        'PictureBox10
         '
-        Me.Button5.Location = New System.Drawing.Point(3, 79)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(191, 60)
-        Me.Button5.TabIndex = 4
-        Me.Button5.Text = "Create Purchase Order"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.PictureBox10.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox10.Image = CType(resources.GetObject("PictureBox10.Image"), System.Drawing.Image)
+        Me.PictureBox10.Location = New System.Drawing.Point(12, 152)
+        Me.PictureBox10.Name = "PictureBox10"
+        Me.PictureBox10.Size = New System.Drawing.Size(46, 42)
+        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox10.TabIndex = 11
+        Me.PictureBox10.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.Image = Global.mgmpos.My.Resources.Resources.return_icon
+        Me.PictureBox3.Location = New System.Drawing.Point(12, 18)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(55, 50)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 12
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(12, 88)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(46, 42)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 13
+        Me.PictureBox2.TabStop = False
         '
         'frmStockDashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.SeaGreen
+        Me.BackColor = System.Drawing.SystemColors.GrayText
         Me.ClientSize = New System.Drawing.Size(1040, 556)
         Me.Controls.Add(Me.pnlStockOut)
         Me.Controls.Add(Me.PnlStockIn)
@@ -851,6 +901,9 @@ Partial Class frmStockDashboard
         Me.GroupBox4.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -924,4 +977,7 @@ Partial Class frmStockDashboard
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
+    Friend WithEvents PictureBox10 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
 End Class

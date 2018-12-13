@@ -22,6 +22,7 @@ Public Class frmDashboard
         panelContextRegister.Visible = True
         PnlCustomer.Visible = False
         PnlMain.Visible = False
+        pnlReports.Visible = False
         lblHEADER.Text = "REGISTER"
 
     End Sub
@@ -90,12 +91,80 @@ Public Class frmDashboard
         retrievesupplier()
         'lblDateTime.Text = dashTime
         getRemittanceforgraph()
+        getCategoryforgraph()
+        getsalesperformance()
+        getCriticalProduct()
+    End Sub
+    Private Sub getCriticalProduct()
+        Try
+            dbConnection()
+            sql = "SELECT prodcode, prodname,prodsrp,prod_begin_qty FROM newpost_database.product where prod_begin_qty <= prod_reorder_qty; "
+            cmd = New MySqlCommand
+            With cmd
+                .Connection = conn
+                .CommandText = sql
+                .ExecuteNonQuery()
+            End With
+            dt = New DataTable
+            da = New MySqlDataAdapter
+            da.SelectCommand = cmd
+            da.Fill(dt)
+            homedgproduct.DataSource = dt
+            With homedgproduct
+                .RowHeadersVisible = False
+                .Columns(0).HeaderText = "Product Code"
+                .Columns(1).HeaderText = "Name"
+                .Columns(2).HeaderText = "SRP"
+                .Columns(2).Width = 100
+                .Columns(3).HeaderText = "Qty"
 
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+            da.Dispose()
+            cmd.Dispose()
+        End Try
+    End Sub
+    Private Sub getsalesperformance()
+        Try
+            dbConnection()
+            sql = "SELECT date,sum(amountdue)as Amount FROM newpost_database.transaction where status ='remitted'group by date;"
+            cmd = New MySqlCommand(sql, conn)
+            dr = cmd.ExecuteReader
+
+            While dr.Read
+                Chart3.Series("Collections").Points.AddXY(dr.GetString("date"), dr.GetString("Amount"))
+            End While
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+            dr.Close()
+        End Try
+    End Sub
+    Private Sub getCategoryforgraph()
+        Try
+            dbConnection()
+            sql = "select a.prodcode,a.prodname,a.prodcategory,sum(b.qty)as QTY,b.transdate from product as a inner join transdetails as b on a.prodcode = b.prodcode group by a.prodcategory order by prodcategory asc ;"
+            cmd = New MySqlCommand(sql, conn)
+            dr = cmd.ExecuteReader
+
+            While dr.Read
+                Chart2.Series("Product Category").Points.AddXY(dr.GetString("prodcategory"), dr.GetString("QTY"))
+            End While
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+            dr.Close()
+        End Try
     End Sub
     Private Sub getRemittanceforgraph()
         Try
             dbConnection()
-            sql = "SELECT remittancedate,(cashsales)as Cash, sum(checquesales)as Cheque, sum(termsales) as Terms,sum(cashonhand) as COH FROM newpost_database.remiitance group by remittancedate;"
+            sql = "SELECT remittancedate,sum(cashsales)as Cash,sum(checquesales)as Cheque,sum(termsales)as Terms FROM newpost_database.remiitance group by remittancedate;"
             cmd = New MySqlCommand(sql, conn)
             dr = cmd.ExecuteReader
 
@@ -103,7 +172,7 @@ Public Class frmDashboard
                 Chart1.Series("Cash").Points.AddXY(dr.GetString("remittancedate"), dr.GetString("Cash"))
                 Chart1.Series("Cheque").Points.AddXY(dr.GetString("remittancedate"), dr.GetString("Cheque"))
                 Chart1.Series("Terms").Points.AddXY(dr.GetString("remittancedate"), dr.GetString("Terms"))
-                Chart1.Series("Cash on Hand").Points.AddXY(dr.GetString("remittancedate"), dr.GetString("COH"))
+
             End While
         Catch ex As MySqlException
             MsgBox(ex.Message)
@@ -684,5 +753,54 @@ Public Class frmDashboard
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         frmPOS.Show()
         Me.Dispose()
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        panelProduct.Visible = False
+        pnlEmployee.Visible = False
+        panelSupplier.Visible = False
+        panelContextRegister.Visible = False
+        PnlCustomer.Visible = False
+        PnlMain.Visible = True
+        pnlReports.Visible = False
+        lblHEADER.Text = "Main"
+    End Sub
+
+    Private Sub btnSalesReport_Click(sender As Object, e As EventArgs) Handles btnSalesReport.Click
+
+        frmSalesReport.Label1.Text = "Sales Report"
+        frmSalesReport.GBRemittance.Visible = False
+        frmSalesReport.gbSales.Visible = True
+        frmSalesReport.ShowDialog()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        panelProduct.Visible = False
+        pnlEmployee.Visible = False
+        panelSupplier.Visible = False
+        panelContextRegister.Visible = False
+        PnlCustomer.Visible = False
+        PnlMain.Visible = False
+        pnlReports.Visible = True
+        lblHEADER.Text = "Reports"
+    End Sub
+
+    Private Sub Button7_Click_1(sender As Object, e As EventArgs) Handles btnRemittance.Click
+
+        frmSalesReport.Label1.Text = "Remittance Report"
+        frmSalesReport.GBRemittance.Visible = True
+        frmSalesReport.gbSales.Visible = False
+        frmSalesReport.ShowDialog()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        frmReport_product.GroupBox1.Visible = False
+        frmReport_product.GBProduct.Visible = True
+        frmReport_product.ShowDialog()
+
+    End Sub
+
+    Private Sub frmDashboard_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        End
     End Sub
 End Class

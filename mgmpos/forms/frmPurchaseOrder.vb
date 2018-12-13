@@ -115,8 +115,8 @@ Public Class frmPurchaseOrder
             ' reportsDGV.DataSource = dt
             Dim report As New purchaseorder
             report.SetDataSource(dt)
-            frmReport_product.CrystalReportViewer1.ReportSource = report
-            frmReport_product.CrystalReportViewer1.Refresh()
+            frmReport_product.GBRemittance.ReportSource = report
+            frmReport_product.GBRemittance.Refresh()
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally

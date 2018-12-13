@@ -27,10 +27,17 @@ Partial Class frmDashboard
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.panelMenu = New System.Windows.Forms.Panel()
+        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.PictureBox9 = New System.Windows.Forms.PictureBox()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
@@ -192,9 +199,29 @@ Partial Class frmDashboard
         Me.Label39 = New System.Windows.Forms.Label()
         Me.cboCustType = New System.Windows.Forms.ComboBox()
         Me.PnlMain = New System.Windows.Forms.Panel()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.homedgproduct = New System.Windows.Forms.DataGridView()
+        Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Label47 = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Label46 = New System.Windows.Forms.Label()
+        Me.pnlReports = New System.Windows.Forms.Panel()
+        Me.PictureBox16 = New System.Windows.Forms.PictureBox()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.PictureBox15 = New System.Windows.Forms.PictureBox()
+        Me.btnRemittance = New System.Windows.Forms.Button()
+        Me.PictureBox14 = New System.Windows.Forms.PictureBox()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.PictureBox13 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox12 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox11 = New System.Windows.Forms.PictureBox()
+        Me.btnCostumerReport = New System.Windows.Forms.Button()
+        Me.btnStockReport = New System.Windows.Forms.Button()
+        Me.btnSalesReport = New System.Windows.Forms.Button()
         Me.panelMenu.SuspendLayout()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -228,12 +255,24 @@ Partial Class frmDashboard
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBCustomer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlMain.SuspendLayout()
+        CType(Me.homedgproduct, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlReports.SuspendLayout()
+        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'panelMenu
         '
         Me.panelMenu.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.panelMenu.Controls.Add(Me.PictureBox10)
+        Me.panelMenu.Controls.Add(Me.Button5)
         Me.panelMenu.Controls.Add(Me.PictureBox9)
         Me.panelMenu.Controls.Add(Me.PictureBox8)
         Me.panelMenu.Controls.Add(Me.PictureBox7)
@@ -250,11 +289,35 @@ Partial Class frmDashboard
         Me.panelMenu.Size = New System.Drawing.Size(259, 749)
         Me.panelMenu.TabIndex = 0
         '
+        'PictureBox10
+        '
+        Me.PictureBox10.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox10.Image = CType(resources.GetObject("PictureBox10.Image"), System.Drawing.Image)
+        Me.PictureBox10.Location = New System.Drawing.Point(12, 166)
+        Me.PictureBox10.Name = "PictureBox10"
+        Me.PictureBox10.Size = New System.Drawing.Size(75, 79)
+        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox10.TabIndex = 10
+        Me.PictureBox10.TabStop = False
+        '
+        'Button5
+        '
+        Me.Button5.FlatAppearance.BorderColor = System.Drawing.Color.MintCream
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.Location = New System.Drawing.Point(3, 157)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(253, 97)
+        Me.Button5.TabIndex = 9
+        Me.Button5.Text = "Main"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button5.UseVisualStyleBackColor = True
+        '
         'PictureBox9
         '
         Me.PictureBox9.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox9.Image = Global.mgmpos.My.Resources.Resources.chart_increase
-        Me.PictureBox9.Location = New System.Drawing.Point(22, 531)
+        Me.PictureBox9.Image = Global.mgmpos.My.Resources.Resources.reports
+        Me.PictureBox9.Location = New System.Drawing.Point(12, 589)
         Me.PictureBox9.Name = "PictureBox9"
         Me.PictureBox9.Size = New System.Drawing.Size(89, 71)
         Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -265,7 +328,7 @@ Partial Class frmDashboard
         '
         Me.PictureBox8.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox8.Image = Global.mgmpos.My.Resources.Resources._220px_UPC_A_036000291452_svg
-        Me.PictureBox8.Location = New System.Drawing.Point(22, 428)
+        Me.PictureBox8.Location = New System.Drawing.Point(12, 480)
         Me.PictureBox8.Name = "PictureBox8"
         Me.PictureBox8.Size = New System.Drawing.Size(89, 71)
         Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -276,7 +339,7 @@ Partial Class frmDashboard
         '
         Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox7.Image = Global.mgmpos.My.Resources.Resources.black_product_256
-        Me.PictureBox7.Location = New System.Drawing.Point(22, 325)
+        Me.PictureBox7.Location = New System.Drawing.Point(12, 378)
         Me.PictureBox7.Name = "PictureBox7"
         Me.PictureBox7.Size = New System.Drawing.Size(89, 71)
         Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -287,7 +350,7 @@ Partial Class frmDashboard
         '
         Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox3.Image = Global.mgmpos.My.Resources.Resources.return_icon
-        Me.PictureBox3.Location = New System.Drawing.Point(36, 219)
+        Me.PictureBox3.Location = New System.Drawing.Point(12, 270)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(75, 79)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -298,7 +361,7 @@ Partial Class frmDashboard
         '
         Me.lblDateTime.AutoSize = True
         Me.lblDateTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateTime.Location = New System.Drawing.Point(33, 637)
+        Me.lblDateTime.Location = New System.Drawing.Point(32, 672)
         Me.lblDateTime.Name = "lblDateTime"
         Me.lblDateTime.Size = New System.Drawing.Size(125, 20)
         Me.lblDateTime.TabIndex = 1
@@ -309,7 +372,7 @@ Partial Class frmDashboard
         Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.MintCream
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(3, 519)
+        Me.Button4.Location = New System.Drawing.Point(3, 572)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(253, 97)
         Me.Button4.TabIndex = 3
@@ -322,7 +385,7 @@ Partial Class frmDashboard
         Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.MintCream
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(3, 414)
+        Me.Button3.Location = New System.Drawing.Point(3, 467)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(253, 97)
         Me.Button3.TabIndex = 2
@@ -335,7 +398,7 @@ Partial Class frmDashboard
         Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.MintCream
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(3, 311)
+        Me.Button2.Location = New System.Drawing.Point(3, 364)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(253, 97)
         Me.Button2.TabIndex = 1
@@ -348,7 +411,7 @@ Partial Class frmDashboard
         Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.MintCream
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(3, 208)
+        Me.Button1.Location = New System.Drawing.Point(3, 261)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(253, 97)
         Me.Button1.TabIndex = 0
@@ -1910,6 +1973,12 @@ Partial Class frmDashboard
         '
         'PnlMain
         '
+        Me.PnlMain.Controls.Add(Me.Label49)
+        Me.PnlMain.Controls.Add(Me.homedgproduct)
+        Me.PnlMain.Controls.Add(Me.Chart3)
+        Me.PnlMain.Controls.Add(Me.Label48)
+        Me.PnlMain.Controls.Add(Me.Chart2)
+        Me.PnlMain.Controls.Add(Me.Label47)
         Me.PnlMain.Controls.Add(Me.Chart1)
         Me.PnlMain.Controls.Add(Me.Label46)
         Me.PnlMain.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1918,42 +1987,110 @@ Partial Class frmDashboard
         Me.PnlMain.Size = New System.Drawing.Size(1091, 688)
         Me.PnlMain.TabIndex = 4
         '
-        'Chart1
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label49.Location = New System.Drawing.Point(702, 325)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(194, 25)
+        Me.Label49.TabIndex = 8
+        Me.Label49.Text = "Sales Performance"
+        '
+        'homedgproduct
+        '
+        Me.homedgproduct.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
+        Me.homedgproduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.homedgproduct.Location = New System.Drawing.Point(26, 353)
+        Me.homedgproduct.Name = "homedgproduct"
+        Me.homedgproduct.Size = New System.Drawing.Size(478, 275)
+        Me.homedgproduct.TabIndex = 7
+        '
+        'Chart3
         '
         ChartArea1.AxisX.Interval = 1.0R
-        ChartArea1.AxisX.IsLabelAutoFit = False
-        ChartArea1.AxisX.LabelStyle.Angle = -45
         ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Me.Chart3.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart3.Legends.Add(Legend1)
+        Me.Chart3.Location = New System.Drawing.Point(523, 353)
+        Me.Chart3.Name = "Chart3"
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series1.Legend = "Legend1"
+        Series1.Name = "Collections"
+        Me.Chart3.Series.Add(Series1)
+        Me.Chart3.Size = New System.Drawing.Size(545, 285)
+        Me.Chart3.TabIndex = 6
+        Me.Chart3.Text = "Chart3"
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label48.Location = New System.Drawing.Point(107, 325)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(270, 25)
+        Me.Label48.TabIndex = 5
+        Me.Label48.Text = "Products with Critical Items"
+        '
+        'Chart2
+        '
+        ChartArea2.AxisX.Interval = 1.0R
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend2)
+        Me.Chart2.Location = New System.Drawing.Point(609, 50)
+        Me.Chart2.Name = "Chart2"
+        Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn
+        Series2.Legend = "Legend1"
+        Series2.Name = "Product Category"
+        Me.Chart2.Series.Add(Series2)
+        Me.Chart2.Size = New System.Drawing.Size(458, 272)
+        Me.Chart2.TabIndex = 4
+        Me.Chart2.Text = "Chart2"
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label47.Location = New System.Drawing.Point(682, 16)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(316, 25)
+        Me.Label47.TabIndex = 3
+        Me.Label47.Text = "Sales Performance by Category"
+        '
+        'Chart1
+        '
+        ChartArea3.AxisX.Interval = 1.0R
+        ChartArea3.AxisX.IsLabelAutoFit = False
+        ChartArea3.AxisX.LabelStyle.Angle = -45
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend3)
         Me.Chart1.Location = New System.Drawing.Point(56, 50)
         Me.Chart1.Name = "Chart1"
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100
-        Series1.Legend = "Legend1"
-        Series1.Name = "Cash"
-        Series1.YValuesPerPoint = 2
-        Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100
-        Series2.Legend = "Legend1"
-        Series2.Name = "Cheque"
-        Series2.YValuesPerPoint = 2
         Series3.ChartArea = "ChartArea1"
         Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100
         Series3.Legend = "Legend1"
-        Series3.Name = "Terms"
-        Series3.YValuesPerPoint = 2
+        Series3.Name = "Cash"
+        Series3.YValuesPerPoint = 4
         Series4.ChartArea = "ChartArea1"
         Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100
         Series4.Legend = "Legend1"
-        Series4.Name = "Cash on Hand"
-        Series4.YValuesPerPoint = 2
-        Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Series.Add(Series2)
+        Series4.Name = "Cheque"
+        Series5.ChartArea = "ChartArea1"
+        Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100
+        Series5.Legend = "Legend1"
+        Series5.Name = "Terms"
         Me.Chart1.Series.Add(Series3)
         Me.Chart1.Series.Add(Series4)
-        Me.Chart1.Size = New System.Drawing.Size(435, 263)
+        Me.Chart1.Series.Add(Series5)
+        Me.Chart1.Size = New System.Drawing.Size(534, 278)
         Me.Chart1.TabIndex = 2
         Me.Chart1.Text = "Chart1"
         '
@@ -1961,11 +2098,157 @@ Partial Class frmDashboard
         '
         Me.Label46.AutoSize = True
         Me.Label46.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label46.Location = New System.Drawing.Point(186, 25)
+        Me.Label46.Location = New System.Drawing.Point(140, 19)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(190, 25)
         Me.Label46.TabIndex = 1
         Me.Label46.Text = "Remittance Report"
+        '
+        'pnlReports
+        '
+        Me.pnlReports.Controls.Add(Me.PictureBox16)
+        Me.pnlReports.Controls.Add(Me.Button7)
+        Me.pnlReports.Controls.Add(Me.PictureBox15)
+        Me.pnlReports.Controls.Add(Me.btnRemittance)
+        Me.pnlReports.Controls.Add(Me.PictureBox14)
+        Me.pnlReports.Controls.Add(Me.Button6)
+        Me.pnlReports.Controls.Add(Me.PictureBox13)
+        Me.pnlReports.Controls.Add(Me.PictureBox12)
+        Me.pnlReports.Controls.Add(Me.PictureBox11)
+        Me.pnlReports.Controls.Add(Me.btnCostumerReport)
+        Me.pnlReports.Controls.Add(Me.btnStockReport)
+        Me.pnlReports.Controls.Add(Me.btnSalesReport)
+        Me.pnlReports.Location = New System.Drawing.Point(274, 64)
+        Me.pnlReports.Name = "pnlReports"
+        Me.pnlReports.Size = New System.Drawing.Size(1076, 691)
+        Me.pnlReports.TabIndex = 4
+        Me.pnlReports.Visible = False
+        '
+        'PictureBox16
+        '
+        Me.PictureBox16.Image = Global.mgmpos.My.Resources.Resources.download
+        Me.PictureBox16.Location = New System.Drawing.Point(379, 178)
+        Me.PictureBox16.Name = "PictureBox16"
+        Me.PictureBox16.Size = New System.Drawing.Size(115, 97)
+        Me.PictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox16.TabIndex = 13
+        Me.PictureBox16.TabStop = False
+        '
+        'Button7
+        '
+        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Location = New System.Drawing.Point(366, 167)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(335, 114)
+        Me.Button7.TabIndex = 12
+        Me.Button7.Text = "Stock In Report"
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'PictureBox15
+        '
+        Me.PictureBox15.Image = Global.mgmpos.My.Resources.Resources.remit_handmoney
+        Me.PictureBox15.Location = New System.Drawing.Point(16, 173)
+        Me.PictureBox15.Name = "PictureBox15"
+        Me.PictureBox15.Size = New System.Drawing.Size(108, 98)
+        Me.PictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox15.TabIndex = 11
+        Me.PictureBox15.TabStop = False
+        '
+        'btnRemittance
+        '
+        Me.btnRemittance.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRemittance.Location = New System.Drawing.Point(10, 167)
+        Me.btnRemittance.Name = "btnRemittance"
+        Me.btnRemittance.Size = New System.Drawing.Size(340, 114)
+        Me.btnRemittance.TabIndex = 10
+        Me.btnRemittance.Text = "Remittance Report"
+        Me.btnRemittance.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnRemittance.UseVisualStyleBackColor = True
+        '
+        'PictureBox14
+        '
+        Me.PictureBox14.Image = CType(resources.GetObject("PictureBox14.Image"), System.Drawing.Image)
+        Me.PictureBox14.Location = New System.Drawing.Point(379, 309)
+        Me.PictureBox14.Name = "PictureBox14"
+        Me.PictureBox14.Size = New System.Drawing.Size(109, 90)
+        Me.PictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox14.TabIndex = 9
+        Me.PictureBox14.TabStop = False
+        '
+        'Button6
+        '
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(366, 298)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(333, 114)
+        Me.Button6.TabIndex = 8
+        Me.Button6.Text = "View All Product "
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'PictureBox13
+        '
+        Me.PictureBox13.Image = Global.mgmpos.My.Resources.Resources.costumer
+        Me.PictureBox13.Location = New System.Drawing.Point(721, 35)
+        Me.PictureBox13.Name = "PictureBox13"
+        Me.PictureBox13.Size = New System.Drawing.Size(98, 97)
+        Me.PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox13.TabIndex = 7
+        Me.PictureBox13.TabStop = False
+        '
+        'PictureBox12
+        '
+        Me.PictureBox12.Image = Global.mgmpos.My.Resources.Resources.black_product_256
+        Me.PictureBox12.Location = New System.Drawing.Point(379, 35)
+        Me.PictureBox12.Name = "PictureBox12"
+        Me.PictureBox12.Size = New System.Drawing.Size(115, 97)
+        Me.PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox12.TabIndex = 6
+        Me.PictureBox12.TabStop = False
+        '
+        'PictureBox11
+        '
+        Me.PictureBox11.Image = Global.mgmpos.My.Resources.Resources.chart_increase
+        Me.PictureBox11.Location = New System.Drawing.Point(16, 35)
+        Me.PictureBox11.Name = "PictureBox11"
+        Me.PictureBox11.Size = New System.Drawing.Size(108, 98)
+        Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox11.TabIndex = 5
+        Me.PictureBox11.TabStop = False
+        '
+        'btnCostumerReport
+        '
+        Me.btnCostumerReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCostumerReport.Location = New System.Drawing.Point(713, 28)
+        Me.btnCostumerReport.Name = "btnCostumerReport"
+        Me.btnCostumerReport.Size = New System.Drawing.Size(315, 114)
+        Me.btnCostumerReport.TabIndex = 2
+        Me.btnCostumerReport.Text = "Costumer's Report"
+        Me.btnCostumerReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCostumerReport.UseVisualStyleBackColor = True
+        '
+        'btnStockReport
+        '
+        Me.btnStockReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStockReport.Location = New System.Drawing.Point(364, 28)
+        Me.btnStockReport.Name = "btnStockReport"
+        Me.btnStockReport.Size = New System.Drawing.Size(335, 114)
+        Me.btnStockReport.TabIndex = 1
+        Me.btnStockReport.Text = "Stock Out Report"
+        Me.btnStockReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnStockReport.UseVisualStyleBackColor = True
+        '
+        'btnSalesReport
+        '
+        Me.btnSalesReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalesReport.Location = New System.Drawing.Point(10, 28)
+        Me.btnSalesReport.Name = "btnSalesReport"
+        Me.btnSalesReport.Size = New System.Drawing.Size(340, 114)
+        Me.btnSalesReport.TabIndex = 0
+        Me.btnSalesReport.Text = "Sales Report"
+        Me.btnSalesReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSalesReport.UseVisualStyleBackColor = True
         '
         'frmDashboard
         '
@@ -1973,6 +2256,7 @@ Partial Class frmDashboard
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1350, 749)
         Me.Controls.Add(Me.PnlMain)
+        Me.Controls.Add(Me.pnlReports)
         Me.Controls.Add(Me.panelProduct)
         Me.Controls.Add(Me.panelSupplier)
         Me.Controls.Add(Me.pnlEmployee)
@@ -1981,9 +2265,10 @@ Partial Class frmDashboard
         Me.Controls.Add(Me.panelHeader)
         Me.Controls.Add(Me.panelMenu)
         Me.Name = "frmDashboard"
-        Me.Text = "frmDashboard"
+        Me.Text = "CasianoPos v 0.1 Alpha"
         Me.panelMenu.ResumeLayout(False)
         Me.panelMenu.PerformLayout()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2027,7 +2312,17 @@ Partial Class frmDashboard
         CType(Me.PBCustomer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlMain.ResumeLayout(False)
         Me.PnlMain.PerformLayout()
+        CType(Me.homedgproduct, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlReports.ResumeLayout(False)
+        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2196,4 +2491,25 @@ Partial Class frmDashboard
     Friend WithEvents PnlMain As Panel
     Friend WithEvents Label46 As Label
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents Chart2 As DataVisualization.Charting.Chart
+    Friend WithEvents Label47 As Label
+    Friend WithEvents Label49 As Label
+    Friend WithEvents homedgproduct As DataGridView
+    Friend WithEvents Chart3 As DataVisualization.Charting.Chart
+    Friend WithEvents Label48 As Label
+    Friend WithEvents PictureBox10 As PictureBox
+    Friend WithEvents Button5 As Button
+    Friend WithEvents pnlReports As Panel
+    Friend WithEvents btnCostumerReport As Button
+    Friend WithEvents btnStockReport As Button
+    Friend WithEvents btnSalesReport As Button
+    Friend WithEvents PictureBox14 As PictureBox
+    Friend WithEvents Button6 As Button
+    Friend WithEvents PictureBox13 As PictureBox
+    Friend WithEvents PictureBox12 As PictureBox
+    Friend WithEvents PictureBox11 As PictureBox
+    Friend WithEvents PictureBox15 As PictureBox
+    Friend WithEvents btnRemittance As Button
+    Friend WithEvents PictureBox16 As PictureBox
+    Friend WithEvents Button7 As Button
 End Class
