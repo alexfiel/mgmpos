@@ -30,6 +30,7 @@ Partial Class frmPOS
         Me.lbltransno = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.txtPOSearch = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -61,9 +62,13 @@ Partial Class frmPOS
         Me.lblVat = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.pbEmployeeImg = New System.Windows.Forms.PictureBox()
         Me.lbluser = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnRemit = New System.Windows.Forms.Button()
+        Me.btnReceiveCash = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.cmdRemit = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.cmdCharge = New System.Windows.Forms.Button()
         Me.cmdCheque = New System.Windows.Forms.Button()
@@ -79,24 +84,19 @@ Partial Class frmPOS
         Me.qty = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.btnRemit = New System.Windows.Forms.Button()
-        Me.btnReceiveCash = New System.Windows.Forms.Button()
-        Me.cmdRemit = New System.Windows.Forms.Button()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.pbEmployeeImg = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.pbEmployeeImg, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.DGProduct, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbEmployeeImg, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -144,6 +144,16 @@ Partial Class frmPOS
         Me.Label2.Size = New System.Drawing.Size(198, 37)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Point of Sale"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.mgmpos.My.Resources.Resources.MGGM
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(105, 52)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
         '
         'txtPOSearch
         '
@@ -499,6 +509,17 @@ Partial Class frmPOS
         Me.Label9.TabIndex = 21
         Me.Label9.Text = "Total:"
         '
+        'pbEmployeeImg
+        '
+        Me.pbEmployeeImg.ErrorImage = Global.mgmpos.My.Resources.Resources.MGGM
+        Me.pbEmployeeImg.Image = Global.mgmpos.My.Resources.Resources.MGGM
+        Me.pbEmployeeImg.Location = New System.Drawing.Point(65, 516)
+        Me.pbEmployeeImg.Name = "pbEmployeeImg"
+        Me.pbEmployeeImg.Size = New System.Drawing.Size(112, 99)
+        Me.pbEmployeeImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbEmployeeImg.TabIndex = 3
+        Me.pbEmployeeImg.TabStop = False
+        '
         'lbluser
         '
         Me.lbluser.AutoSize = True
@@ -532,6 +553,28 @@ Partial Class frmPOS
         Me.Panel3.Size = New System.Drawing.Size(958, 614)
         Me.Panel3.TabIndex = 2
         '
+        'btnRemit
+        '
+        Me.btnRemit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnRemit.BackgroundImage = Global.mgmpos.My.Resources.Resources.remit_handmoney
+        Me.btnRemit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRemit.Location = New System.Drawing.Point(730, 544)
+        Me.btnRemit.Name = "btnRemit"
+        Me.btnRemit.Size = New System.Drawing.Size(56, 45)
+        Me.btnRemit.TabIndex = 12
+        Me.btnRemit.UseVisualStyleBackColor = True
+        '
+        'btnReceiveCash
+        '
+        Me.btnReceiveCash.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnReceiveCash.BackgroundImage = Global.mgmpos.My.Resources.Resources.remit
+        Me.btnReceiveCash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnReceiveCash.Location = New System.Drawing.Point(669, 544)
+        Me.btnReceiveCash.Name = "btnReceiveCash"
+        Me.btnReceiveCash.Size = New System.Drawing.Size(56, 46)
+        Me.btnReceiveCash.TabIndex = 11
+        Me.btnReceiveCash.UseVisualStyleBackColor = True
+        '
         'Button4
         '
         Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -542,6 +585,19 @@ Partial Class frmPOS
         Me.Button4.TabIndex = 10
         Me.Button4.Text = "Settings"
         Me.Button4.UseVisualStyleBackColor = False
+        '
+        'cmdRemit
+        '
+        Me.cmdRemit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.cmdRemit.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.cmdRemit.BackgroundImage = Global.mgmpos.My.Resources.Resources.reports
+        Me.cmdRemit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmdRemit.Location = New System.Drawing.Point(863, 542)
+        Me.cmdRemit.Name = "cmdRemit"
+        Me.cmdRemit.Size = New System.Drawing.Size(82, 51)
+        Me.cmdRemit.TabIndex = 9
+        Me.cmdRemit.UseVisualStyleBackColor = False
+        Me.cmdRemit.Visible = False
         '
         'Button3
         '
@@ -614,11 +670,11 @@ Partial Class frmPOS
         '
         Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button2.BackColor = System.Drawing.Color.LightCoral
-        Me.Button2.Location = New System.Drawing.Point(182, 542)
+        Me.Button2.Location = New System.Drawing.Point(151, 542)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(60, 52)
         Me.Button2.TabIndex = 2
-        Me.Button2.Text = "F2 - Costumer"
+        Me.Button2.Text = "Return Items"
         Me.Button2.UseVisualStyleBackColor = False
         '
         'DGProduct
@@ -688,56 +744,6 @@ Partial Class frmPOS
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.LightCoral
-        Me.Button1.Location = New System.Drawing.Point(118, 542)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(58, 52)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "F1 - Look Up"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        '
-        'btnRemit
-        '
-        Me.btnRemit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnRemit.BackgroundImage = Global.mgmpos.My.Resources.Resources.remit_handmoney
-        Me.btnRemit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnRemit.Location = New System.Drawing.Point(801, 547)
-        Me.btnRemit.Name = "btnRemit"
-        Me.btnRemit.Size = New System.Drawing.Size(56, 45)
-        Me.btnRemit.TabIndex = 12
-        Me.btnRemit.UseVisualStyleBackColor = True
-        '
-        'btnReceiveCash
-        '
-        Me.btnReceiveCash.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnReceiveCash.BackgroundImage = Global.mgmpos.My.Resources.Resources.remit
-        Me.btnReceiveCash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnReceiveCash.Location = New System.Drawing.Point(739, 548)
-        Me.btnReceiveCash.Name = "btnReceiveCash"
-        Me.btnReceiveCash.Size = New System.Drawing.Size(56, 46)
-        Me.btnReceiveCash.TabIndex = 11
-        Me.btnReceiveCash.UseVisualStyleBackColor = True
-        '
-        'cmdRemit
-        '
-        Me.cmdRemit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.cmdRemit.BackColor = System.Drawing.Color.DeepSkyBlue
-        Me.cmdRemit.BackgroundImage = Global.mgmpos.My.Resources.Resources.reports
-        Me.cmdRemit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmdRemit.Location = New System.Drawing.Point(863, 542)
-        Me.cmdRemit.Name = "cmdRemit"
-        Me.cmdRemit.Size = New System.Drawing.Size(82, 51)
-        Me.cmdRemit.TabIndex = 9
-        Me.cmdRemit.UseVisualStyleBackColor = False
-        Me.cmdRemit.Visible = False
-        '
         'PictureBox2
         '
         Me.PictureBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -749,26 +755,20 @@ Partial Class frmPOS
         Me.PictureBox2.TabIndex = 3
         Me.PictureBox2.TabStop = False
         '
-        'pbEmployeeImg
+        'Button1
         '
-        Me.pbEmployeeImg.ErrorImage = Global.mgmpos.My.Resources.Resources.MGGM
-        Me.pbEmployeeImg.Image = Global.mgmpos.My.Resources.Resources.MGGM
-        Me.pbEmployeeImg.Location = New System.Drawing.Point(65, 516)
-        Me.pbEmployeeImg.Name = "pbEmployeeImg"
-        Me.pbEmployeeImg.Size = New System.Drawing.Size(112, 99)
-        Me.pbEmployeeImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbEmployeeImg.TabIndex = 3
-        Me.pbEmployeeImg.TabStop = False
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.LightCoral
+        Me.Button1.Location = New System.Drawing.Point(87, 542)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(58, 52)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "F1 - Look Up"
+        Me.Button1.UseVisualStyleBackColor = False
         '
-        'PictureBox1
+        'Timer1
         '
-        Me.PictureBox1.Image = Global.mgmpos.My.Resources.Resources.MGGM
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(105, 52)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
+        Me.Timer1.Enabled = True
         '
         'frmPOS
         '
@@ -784,19 +784,19 @@ Partial Class frmPOS
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.pbEmployeeImg, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         CType(Me.DGProduct, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbEmployeeImg, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

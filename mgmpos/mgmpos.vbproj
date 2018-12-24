@@ -14,7 +14,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Users\alexfieljr\Desktop\Mggm\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -155,6 +155,12 @@
       <DependentUpon>frmRemit.vb</DependentUpon>
     </Compile>
     <Compile Include="forms\frmRemit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmReturnItem.Designer.vb">
+      <DependentUpon>frmReturnItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmReturnItem.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\reports.vb" />
@@ -382,6 +388,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmRemit.resx">
       <DependentUpon>frmRemit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmReturnItem.resx">
+      <DependentUpon>frmReturnItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

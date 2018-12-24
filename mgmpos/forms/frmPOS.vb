@@ -321,4 +321,8 @@ Public Class frmPOS
     Private Sub frmPOS_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         End
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+    End Sub
 End Class
