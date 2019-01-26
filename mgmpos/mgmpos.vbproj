@@ -587,6 +587,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Blackvariant-Button-Ui-System-Folders-Alt-Server-2.ico" />
+    <None Include="Resources\close-window.png" />
+    <None Include="Resources\teleremit.png" />
     <None Include="Resources\remit_handmoney.png" />
     <None Include="Resources\remit.png" />
     <None Include="Resources\reports.png" />

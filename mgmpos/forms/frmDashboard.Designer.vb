@@ -435,7 +435,7 @@ Partial Class frmDashboard
         Me.pnlEmployee.Controls.Add(Me.GroupBox5)
         Me.pnlEmployee.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pnlEmployee.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.pnlEmployee.Location = New System.Drawing.Point(396, 79)
+        Me.pnlEmployee.Location = New System.Drawing.Point(263, 64)
         Me.pnlEmployee.Name = "pnlEmployee"
         Me.pnlEmployee.Size = New System.Drawing.Size(974, 590)
         Me.pnlEmployee.TabIndex = 2
@@ -526,7 +526,7 @@ Partial Class frmDashboard
         'cboDesignation
         '
         Me.cboDesignation.FormattingEnabled = True
-        Me.cboDesignation.Items.AddRange(New Object() {"Admin", "Cashier", "Data Entry"})
+        Me.cboDesignation.Items.AddRange(New Object() {"Administrator", "Cashier", "Data Entry"})
         Me.cboDesignation.Location = New System.Drawing.Point(192, 259)
         Me.cboDesignation.Name = "cboDesignation"
         Me.cboDesignation.Size = New System.Drawing.Size(291, 24)
@@ -2256,10 +2256,10 @@ Partial Class frmDashboard
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1350, 749)
         Me.Controls.Add(Me.PnlMain)
+        Me.Controls.Add(Me.pnlEmployee)
         Me.Controls.Add(Me.pnlReports)
         Me.Controls.Add(Me.panelProduct)
         Me.Controls.Add(Me.panelSupplier)
-        Me.Controls.Add(Me.pnlEmployee)
         Me.Controls.Add(Me.PnlCustomer)
         Me.Controls.Add(Me.panelContextRegister)
         Me.Controls.Add(Me.panelHeader)

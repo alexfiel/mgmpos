@@ -143,6 +143,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property close_window() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("close-window", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property costumer() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("costumer", resourceCulture)
@@ -276,6 +286,16 @@ Namespace My.Resources
         Friend ReadOnly Property supplier_512() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("supplier_512", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property teleremit() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("teleremit", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

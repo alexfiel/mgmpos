@@ -47,7 +47,74 @@ Module retrieve
         End Try
     End Sub
 
+    Public Sub getTransctionNo()
+        Try
+            dbConnection()
+            sql = "select a.trans_no,a.costumer,a.address,b.transID,b.prodcode,c.prodname,b.qty,b.price,b.amount,a.subtotal,a.vat,a.discount,a.amountdue,a.date,a.status from transaction as a inner join transdetails as b on a.trans_no = b.transID inner join product as c on b.prodcode = c.prodcode where a.trans_no=@transnolookup and a.status <> 'void' ;"
+            cmd = New MySqlCommand(sql, conn)
+            dt = New DataTable
+            da = New MySqlDataAdapter
+            da.SelectCommand = cmd
+            With cmd
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@transnolookup", frmReturnItem.txttransnoSearch.Text)
+            End With
 
+            da.Fill(dt)
+            If dt.Rows.Count > 0 Then
+                frmReturnItem.txtreason.Enabled = True
+
+                Dim transName, transadd As String
+                Dim transNO As Integer
+                transNO = dt.Rows(0).Item(0)
+                transName = dt.Rows(0).Item(1)
+                transadd = dt.Rows(0).Item(2)
+                frmReturnItem.txttransno.Text = transNO
+                frmReturnItem.txttransdate.Text = dt.Rows(0).Item(13)
+                frmReturnItem.txtcostumer.Text = transName
+                frmReturnItem.txtaddress.Text = transadd
+                frmReturnItem.txtsubtotal.Text = dt.Rows(0).Item(9)
+                frmReturnItem.txtvat.Text = dt.Rows(0).Item(10)
+                frmReturnItem.txtdiscount.Text = dt.Rows(0).Item(11)
+                frmReturnItem.txtamountdue.Text = dt.Rows(0).Item(12)
+
+                frmReturnItem.dgtransaction.DataSource = dt
+                With frmReturnItem.dgtransaction
+                    .RowHeadersVisible = False
+                    .Columns(0).HeaderCell.Value = "Trans #"
+                    .Columns(0).Width = 100
+                    .Columns(0).Visible = False
+                    .Columns(1).Visible = False
+                    .Columns(2).Visible = False
+                    .Columns(3).Visible = False
+                    .Columns(9).Visible = False
+                    .Columns(10).Visible = False
+                    .Columns(11).Visible = False
+                    .Columns(12).Visible = False
+                    .Columns(13).Visible = False
+                    .Columns(4).HeaderCell.Value = "Product Code"
+                    .Columns(4).Width = 150
+                    .Columns(5).HeaderCell.Value = "Product Name"
+                    .Columns(5).Width = 250
+                    .Columns(6).HeaderCell.Value = "QTY"
+                    .Columns(6).Width = 50
+                    .Columns(7).HeaderCell.Value = "Price"
+                    .Columns(7).Width = 100
+
+                End With
+                frmReturnItem.txtreason.Focus()
+            Else
+                MsgBox("Either the transaction no has already been voided or Transaction no. does not exist! ", vbInformation, "No Result")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+            da.Dispose()
+            cmd.Dispose()
+
+        End Try
+    End Sub
     Public Sub checkproductCode()
         Try
             dbConnection()
