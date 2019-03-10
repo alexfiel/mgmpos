@@ -142,45 +142,67 @@ Public Class cEmployee
         End Set
     End Property
     Public Sub addCostumer()
+        dbConnection()
+
+        Dim myCommand As MySqlCommand = conn.CreateCommand()
+        Dim myTrans As MySqlTransaction
+
+
+        myTrans = conn.BeginTransaction()
+
+        '*******************************
+
         Try
-            dbConnection()
-            sql = "INSERT INTO customer (`objid`, `costumerType`, `orgName`, `firstname`, `lastname`, `address`, `contact`, `email`, `imgLocation`) VALUES (@objid, @custType, @orgName, @fname, @lname, @address, @contact, @email, @imagelocation);"
-            cmd = New MySqlCommand
-            With cmd
-                .Connection = conn
-                .CommandText = sql
+            myCommand.CommandText = "Select * from customer where firstname =@fname and lastname =@lname"
+            With myCommand
                 .Parameters.Clear()
-                .Parameters.AddWithValue("@objid", objid)
-                .Parameters.AddWithValue("@custType", CustomerType)
-                .Parameters.AddWithValue("@orgName", OrganizationName)
                 .Parameters.AddWithValue("@fname", fname)
                 .Parameters.AddWithValue("@lname", lname)
-                .Parameters.AddWithValue("@address", address)
-                .Parameters.AddWithValue("@contact", ContactNo)
-                .Parameters.AddWithValue("@email", E_mail)
-                .Parameters.AddWithValue("@imagelocation", imageLocation)
-
-                result = .ExecuteNonQuery
-
-                If result = 0 Then
-                    MsgBox("Error in adding Customer!")
-                Else
-                    MsgBox("Successfully added new Customer!")
-                End If
             End With
-        Catch mysqlEx As MySqlException
-            If mysqlEx.Number = 1068 Then
-                MsgBox("Customer ID already taken!", vbOK + vbInformation, "Duplicate Entry")
+            dr = myCommand.ExecuteReader()
+            If dr.HasRows Then
+                MsgBox("Costumer Already Exist!", MsgBoxStyle.Exclamation, "Add New Customer!")
+            Else
+                dr.Close()
+                myCommand.CommandText = "INSERT INTO customer (`objid`, `costumerType`, `orgName`, `firstname`, `lastname`, `address`, `contact`, `email`, `imgLocation`) VALUES (@objid, @custType, @orgName, @fname, @lname, @address, @contact, @email, @imagelocation);"
+                With myCommand
+                    .Parameters.Clear()
+                    .Parameters.AddWithValue("@objid", objid)
+                    .Parameters.AddWithValue("@custType", CustomerType)
+                    .Parameters.AddWithValue("@orgName", OrganizationName)
+                    .Parameters.AddWithValue("@fname", fname)
+                    .Parameters.AddWithValue("@lname", lname)
+                    .Parameters.AddWithValue("@address", address)
+                    .Parameters.AddWithValue("@contact", ContactNo)
+                    .Parameters.AddWithValue("@email", E_mail)
+                    .Parameters.AddWithValue("@imagelocation", imageLocation)
+                End With
+                myCommand.ExecuteNonQuery()
+                myTrans.Commit()
+                MsgBox("Items recorded to database")
             End If
 
-        Catch ex As Exception
-            MsgBox(ex.Message)
+
+        Catch e As Exception
+            Try
+                myTrans.Rollback()
+            Catch ex As MySqlException
+                If Not myTrans.Connection Is Nothing Then
+                    MsgBox("An exception of type " + ex.GetType().ToString() +
+" was encountered while attempting to roll back the transaction.")
+                End If
+            End Try
+
+            MsgBox("An exception of type " + e.GetType().ToString() +
+"was encountered while inserting the data.")
+            MsgBox("Neither record was written to database.")
         Finally
             conn.Close()
-            cmd.Dispose()
-
-
         End Try
+
+
+
+
     End Sub
     Public Sub addEmployee()
         Try

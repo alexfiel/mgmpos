@@ -32,9 +32,12 @@ Public Class frmRemit
 
     Private Sub frmRemit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim cash As Double = 0.00
+        Dim tcash As Double = 0.00
         Dim cheque As Double = 0.00
         Dim term As Double = 0.00
+        Dim voided As Double = 0.00
         Dim total As Double = 0.00
+        Dim collection As Double = 0.00
         Dim Lcashonhand As Double = 0.00
         If dgCollections.Rows.Count > 0 Then
             For Each row As DataGridViewRow In dgCollections.Rows
@@ -50,13 +53,27 @@ Public Class frmRemit
                     term = CDbl(lbltotalterm.Text)
                     lbltotalterm.Text = CType(row.Cells(6).Value, Double) + term
 
+                ElseIf CType(row.Cells(2).Value, String) = "void" Then
+                    voided = CDbl(lblvoided.Text)
+                    lblvoided.Text = CType(row.Cells(6).Value, Double) + voided
+
+                ElseIf CType(row.Cells(2).Value, String) = "Collection" Then
+                    collection = CDbl(lblcollection.Text)
+                    lblcollection.Text = CType(row.Cells(6).Value, Double) + collection
                 End If
-                total = CDbl(lbltotalcash.Text) + CDbl(lbltotalcheque.Text) + CDbl(lbltotalterm.Text)
-                lbltotalsalesremittance.Text = total
-                Lcashonhand = frmPOS.txtcashonhand.Text
-                lbltotalcashonhand.Text = Lcashonhand
-                lblgrandtotal.Text = total + Lcashonhand
+
             Next
+            total = CDbl(lbltotalcash.Text) + CDbl(lbltotalcheque.Text) + CDbl(lbltotalterm.Text)
+
+            lbltotalsalesremittance.Text = total
+
+            Lcashonhand = frmPOS.txtcashonhand.Text
+            lbltotalcashonhand.Text = Lcashonhand
+
+            tcash = CDbl(lbltotalcash.Text) + CDbl(lblcollection.Text)
+            lblcashlessvoid.Text = tcash - CDbl(lblvoided.Text)
+            lblgrandtotal.Text = total + CDbl(lblcollection.Text) + CDbl(lbltotalcashonhand.Text) - CDbl(lblvoided.Text)
+
         End If
     End Sub
 
@@ -93,7 +110,7 @@ Public Class frmRemit
 
         Dim servdate As Date = getServerDate()
         Try
-            myCommand.CommandText = "INSERT INTO `newpost_database`.`remiitance` (`remiitanceid`, `userid`, `cashsales`, `checquesales`, `termsales`, `cashonhand`, `grandtotal`,`remittancedate`) VALUES (@remitid, @userid, @cashsales, @chequesales, @termsales, @cashonhand, @grandtotal,@servDate);"
+            myCommand.CommandText = "INSERT INTO `newpost_database`.`remiitance` (`remiitanceid`, `userid`, `cashsales`, `checquesales`, `termsales`,`collection`, `cashonhand`,`voided`, `grandtotal`,`remittancedate`) VALUES (@remitid, @userid, @cashsales, @chequesales, @termsales,@collection, @cashonhand,@voided, @grandtotal,@servDate);"
             With myCommand
                 .Parameters.Clear()
                 .Parameters.AddWithValue("@remitid", remittanceno)
@@ -101,7 +118,9 @@ Public Class frmRemit
                 .Parameters.AddWithValue("@cashsales", CDbl(lbltotalcash.Text))
                 .Parameters.AddWithValue("@chequesales", CDbl(lbltotalcheque.Text))
                 .Parameters.AddWithValue("@termsales", CDbl(lbltotalterm.Text))
+                .Parameters.AddWithValue("@collection", CDbl(lblcollection.Text))
                 .Parameters.AddWithValue("@cashonhand", CDbl(lbltotalcashonhand.Text))
+                .Parameters.AddWithValue("@voided", CDbl(lblvoided.Text))
                 .Parameters.AddWithValue("@grandtotal", CDbl(lblgrandtotal.Text))
                 .Parameters.AddWithValue("@servDate", servdate)
             End With
@@ -126,11 +145,11 @@ Public Class frmRemit
                 End With
                 myCommand.ExecuteNonQuery()
 
-                myCommand.CommandText = "UPDATE `newpost_database`.`transaction` SET `status`='remitted' WHERE `trans_no`=@transno;"
+                myCommand.CommandText = "UPDATE `newpost_database`.`transaction` SET `status`='remitted',remitID=@remitid WHERE `trans_no`=@transno;"
                 With myCommand
                     .Parameters.Clear()
                     .Parameters.AddWithValue("@transno", rem_transno)
-
+                    .Parameters.AddWithValue("@remitid", remittanceno)
                 End With
                 myCommand.ExecuteNonQuery()
             Next
@@ -183,9 +202,9 @@ Public Class frmRemit
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        'Me.Dispose()
-        retrieveRemittance()
-        frmReport.ShowDialog()
+        Me.Dispose()
+        'retrieveRemittance()
+        ' frmReport.ShowDialog()
 
     End Sub
 
@@ -195,5 +214,9 @@ Public Class frmRemit
         retrieveRemittance()
         frmReport.ShowDialog()
 
+    End Sub
+
+    Private Sub frmRemit_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Dispose()
     End Sub
 End Class

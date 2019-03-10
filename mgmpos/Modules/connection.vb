@@ -2,6 +2,7 @@
 
 Module connection
     Public Sub dbConnection()
+        'server=192.168.254.182 - server on mggm prod
         Try
             conn = New MySqlConnection
             conn.ConnectionString = "server=localhost;user id=root;password=alex;database=newpost_database"

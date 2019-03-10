@@ -23,31 +23,25 @@ Partial Class frmDashboard
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ChartArea7 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend7 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend8 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea9 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend9 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series13 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series14 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series15 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDashboard))
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.panelMenu = New System.Windows.Forms.Panel()
-        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.lblDateTime = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pnlEmployee = New System.Windows.Forms.Panel()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.cmdDeleteEmp = New System.Windows.Forms.Button()
@@ -56,12 +50,10 @@ Partial Class frmDashboard
         Me.cmdNewEmployee = New System.Windows.Forms.Button()
         Me.cmdUpdateEmp = New System.Windows.Forms.Button()
         Me.cboDesignation = New System.Windows.Forms.ComboBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.txtSearchEmp = New System.Windows.Forms.TextBox()
         Me.cmdSaveEmp = New System.Windows.Forms.Button()
         Me.cmdBrowse = New System.Windows.Forms.Button()
-        Me.pbEmp = New System.Windows.Forms.PictureBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -83,12 +75,10 @@ Partial Class frmDashboard
         Me.cmdSuppDelete = New System.Windows.Forms.Button()
         Me.DGSupplier = New System.Windows.Forms.DataGridView()
         Me.cmdupdateSupp = New System.Windows.Forms.Button()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.txtSearchSupplier = New System.Windows.Forms.TextBox()
         Me.cmdAddSupp = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
-        Me.pbSupp = New System.Windows.Forms.PictureBox()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
@@ -127,7 +117,6 @@ Partial Class frmDashboard
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.tab_product = New System.Windows.Forms.TabPage()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.tbSearch = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.dg_product = New System.Windows.Forms.DataGridView()
@@ -167,15 +156,10 @@ Partial Class frmDashboard
         Me.Label37 = New System.Windows.Forms.Label()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
-        Me.cmdRegisterEmp = New System.Windows.Forms.Button()
-        Me.cmdRegSupplier = New System.Windows.Forms.Button()
-        Me.cmdCustomer = New System.Windows.Forms.Button()
-        Me.cmdProduct = New System.Windows.Forms.Button()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PnlCustomer = New System.Windows.Forms.Panel()
         Me.lblobjid = New System.Windows.Forms.Label()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.cmdCustSearch = New System.Windows.Forms.Button()
         Me.txtcustSearch = New System.Windows.Forms.TextBox()
         Me.cmdCustDelete = New System.Windows.Forms.Button()
@@ -183,7 +167,6 @@ Partial Class frmDashboard
         Me.cmdCustEdit = New System.Windows.Forms.Button()
         Me.cmdCusNew = New System.Windows.Forms.Button()
         Me.cmdCustBrowse = New System.Windows.Forms.Button()
-        Me.PBCustomer = New System.Windows.Forms.PictureBox()
         Me.Label45 = New System.Windows.Forms.Label()
         Me.txtCustEmail = New System.Windows.Forms.TextBox()
         Me.Label44 = New System.Windows.Forms.Label()
@@ -208,34 +191,43 @@ Partial Class frmDashboard
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Label46 = New System.Windows.Forms.Label()
         Me.pnlReports = New System.Windows.Forms.Panel()
-        Me.PictureBox16 = New System.Windows.Forms.PictureBox()
         Me.Button7 = New System.Windows.Forms.Button()
-        Me.PictureBox15 = New System.Windows.Forms.PictureBox()
         Me.btnRemittance = New System.Windows.Forms.Button()
-        Me.PictureBox14 = New System.Windows.Forms.PictureBox()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.PictureBox13 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox12 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox11 = New System.Windows.Forms.PictureBox()
         Me.btnCostumerReport = New System.Windows.Forms.Button()
         Me.btnStockReport = New System.Windows.Forms.Button()
         Me.btnSalesReport = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.PictureBox17 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox16 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox15 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox14 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox13 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox12 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox11 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.pbSupp = New System.Windows.Forms.PictureBox()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.PBCustomer = New System.Windows.Forms.PictureBox()
+        Me.cmdRegisterEmp = New System.Windows.Forms.Button()
+        Me.cmdRegSupplier = New System.Windows.Forms.Button()
+        Me.cmdCustomer = New System.Windows.Forms.Button()
+        Me.cmdProduct = New System.Windows.Forms.Button()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.pbEmp = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.panelMenu.SuspendLayout()
-        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlEmployee.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbEmp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelSupplier.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DGSupplier, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbSupp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelProduct.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TabControlProduct.SuspendLayout()
@@ -246,26 +238,37 @@ Partial Class frmDashboard
         CType(Me.dglocation, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.tab_product.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dg_product, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.panelHeader.SuspendLayout()
         Me.panelContextRegister.SuspendLayout()
         Me.PnlCustomer.SuspendLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PBCustomer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlMain.SuspendLayout()
         CType(Me.homedgproduct, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlReports.SuspendLayout()
+        CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbSupp, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PBCustomer, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbEmp, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'panelMenu
@@ -289,17 +292,6 @@ Partial Class frmDashboard
         Me.panelMenu.Size = New System.Drawing.Size(259, 749)
         Me.panelMenu.TabIndex = 0
         '
-        'PictureBox10
-        '
-        Me.PictureBox10.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox10.Image = CType(resources.GetObject("PictureBox10.Image"), System.Drawing.Image)
-        Me.PictureBox10.Location = New System.Drawing.Point(12, 166)
-        Me.PictureBox10.Name = "PictureBox10"
-        Me.PictureBox10.Size = New System.Drawing.Size(75, 79)
-        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox10.TabIndex = 10
-        Me.PictureBox10.TabStop = False
-        '
         'Button5
         '
         Me.Button5.FlatAppearance.BorderColor = System.Drawing.Color.MintCream
@@ -312,50 +304,6 @@ Partial Class frmDashboard
         Me.Button5.Text = "Main"
         Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button5.UseVisualStyleBackColor = True
-        '
-        'PictureBox9
-        '
-        Me.PictureBox9.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox9.Image = Global.mgmpos.My.Resources.Resources.reports
-        Me.PictureBox9.Location = New System.Drawing.Point(12, 589)
-        Me.PictureBox9.Name = "PictureBox9"
-        Me.PictureBox9.Size = New System.Drawing.Size(89, 71)
-        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox9.TabIndex = 8
-        Me.PictureBox9.TabStop = False
-        '
-        'PictureBox8
-        '
-        Me.PictureBox8.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox8.Image = Global.mgmpos.My.Resources.Resources._220px_UPC_A_036000291452_svg
-        Me.PictureBox8.Location = New System.Drawing.Point(12, 480)
-        Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(89, 71)
-        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox8.TabIndex = 6
-        Me.PictureBox8.TabStop = False
-        '
-        'PictureBox7
-        '
-        Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox7.Image = Global.mgmpos.My.Resources.Resources.black_product_256
-        Me.PictureBox7.Location = New System.Drawing.Point(12, 378)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(89, 71)
-        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox7.TabIndex = 4
-        Me.PictureBox7.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox3.Image = Global.mgmpos.My.Resources.Resources.return_icon
-        Me.PictureBox3.Location = New System.Drawing.Point(12, 270)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(75, 79)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 1
-        Me.PictureBox3.TabStop = False
         '
         'lblDateTime
         '
@@ -419,25 +367,15 @@ Partial Class frmDashboard
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.mgmpos.My.Resources.Resources.MGGM
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(225, 117)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
         'pnlEmployee
         '
         Me.pnlEmployee.BackColor = System.Drawing.Color.Green
         Me.pnlEmployee.Controls.Add(Me.GroupBox5)
         Me.pnlEmployee.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pnlEmployee.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.pnlEmployee.Location = New System.Drawing.Point(263, 64)
+        Me.pnlEmployee.Location = New System.Drawing.Point(262, 79)
         Me.pnlEmployee.Name = "pnlEmployee"
-        Me.pnlEmployee.Size = New System.Drawing.Size(974, 590)
+        Me.pnlEmployee.Size = New System.Drawing.Size(1046, 590)
         Me.pnlEmployee.TabIndex = 2
         Me.pnlEmployee.Visible = False
         '
@@ -532,16 +470,6 @@ Partial Class frmDashboard
         Me.cboDesignation.Size = New System.Drawing.Size(291, 24)
         Me.cboDesignation.TabIndex = 18
         '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(875, 21)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(30, 27)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 17
-        Me.PictureBox4.TabStop = False
-        '
         'Label23
         '
         Me.Label23.AutoSize = True
@@ -578,17 +506,6 @@ Partial Class frmDashboard
         Me.cmdBrowse.TabIndex = 13
         Me.cmdBrowse.Text = "Browse"
         Me.cmdBrowse.UseVisualStyleBackColor = False
-        '
-        'pbEmp
-        '
-        Me.pbEmp.ErrorImage = CType(resources.GetObject("pbEmp.ErrorImage"), System.Drawing.Image)
-        Me.pbEmp.Image = Global.mgmpos.My.Resources.Resources.employee
-        Me.pbEmp.Location = New System.Drawing.Point(491, 89)
-        Me.pbEmp.Name = "pbEmp"
-        Me.pbEmp.Size = New System.Drawing.Size(191, 164)
-        Me.pbEmp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbEmp.TabIndex = 12
-        Me.pbEmp.TabStop = False
         '
         'Label22
         '
@@ -688,7 +605,7 @@ Partial Class frmDashboard
         '
         Me.panelSupplier.Controls.Add(Me.GroupBox6)
         Me.panelSupplier.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.panelSupplier.Location = New System.Drawing.Point(329, 88)
+        Me.panelSupplier.Location = New System.Drawing.Point(275, 79)
         Me.panelSupplier.Name = "panelSupplier"
         Me.panelSupplier.Size = New System.Drawing.Size(983, 590)
         Me.panelSupplier.TabIndex = 3
@@ -798,16 +715,6 @@ Partial Class frmDashboard
         Me.cmdupdateSupp.Text = "Update"
         Me.cmdupdateSupp.UseVisualStyleBackColor = False
         '
-        'PictureBox5
-        '
-        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(870, 21)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(30, 27)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox5.TabIndex = 17
-        Me.PictureBox5.TabStop = False
-        '
         'Label24
         '
         Me.Label24.AutoSize = True
@@ -843,17 +750,6 @@ Partial Class frmDashboard
         Me.Button11.TabIndex = 6
         Me.Button11.Text = "Browse"
         Me.Button11.UseVisualStyleBackColor = False
-        '
-        'pbSupp
-        '
-        Me.pbSupp.ErrorImage = CType(resources.GetObject("pbSupp.ErrorImage"), System.Drawing.Image)
-        Me.pbSupp.Image = Global.mgmpos.My.Resources.Resources.employee
-        Me.pbSupp.Location = New System.Drawing.Point(408, 70)
-        Me.pbSupp.Name = "pbSupp"
-        Me.pbSupp.Size = New System.Drawing.Size(143, 120)
-        Me.pbSupp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbSupp.TabIndex = 12
-        Me.pbSupp.TabStop = False
         '
         'Label27
         '
@@ -924,7 +820,7 @@ Partial Class frmDashboard
         '
         Me.panelProduct.BackColor = System.Drawing.Color.SeaGreen
         Me.panelProduct.Controls.Add(Me.GroupBox1)
-        Me.panelProduct.Location = New System.Drawing.Point(272, 70)
+        Me.panelProduct.Location = New System.Drawing.Point(269, 61)
         Me.panelProduct.Name = "panelProduct"
         Me.panelProduct.Size = New System.Drawing.Size(1091, 688)
         Me.panelProduct.TabIndex = 3
@@ -1251,16 +1147,6 @@ Partial Class frmDashboard
         Me.tab_product.Size = New System.Drawing.Size(1068, 622)
         Me.tab_product.TabIndex = 1
         Me.tab_product.Text = "Product"
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(1008, 14)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(31, 27)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 8
-        Me.PictureBox2.TabStop = False
         '
         'tbSearch
         '
@@ -1630,7 +1516,7 @@ Partial Class frmDashboard
         Me.panelContextRegister.Controls.Add(Me.cmdRegSupplier)
         Me.panelContextRegister.Controls.Add(Me.cmdCustomer)
         Me.panelContextRegister.Controls.Add(Me.cmdProduct)
-        Me.panelContextRegister.Location = New System.Drawing.Point(272, 108)
+        Me.panelContextRegister.Location = New System.Drawing.Point(266, 67)
         Me.panelContextRegister.Name = "panelContextRegister"
         Me.panelContextRegister.Size = New System.Drawing.Size(790, 625)
         Me.panelContextRegister.TabIndex = 2
@@ -1671,55 +1557,6 @@ Partial Class frmDashboard
         Me.Label35.TabIndex = 4
         Me.Label35.Text = "Product"
         '
-        'cmdRegisterEmp
-        '
-        Me.cmdRegisterEmp.BackgroundImage = Global.mgmpos.My.Resources.Resources.employee
-        Me.cmdRegisterEmp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmdRegisterEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdRegisterEmp.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdRegisterEmp.Location = New System.Drawing.Point(374, 353)
-        Me.cmdRegisterEmp.Name = "cmdRegisterEmp"
-        Me.cmdRegisterEmp.Size = New System.Drawing.Size(272, 201)
-        Me.cmdRegisterEmp.TabIndex = 3
-        Me.cmdRegisterEmp.UseVisualStyleBackColor = True
-        '
-        'cmdRegSupplier
-        '
-        Me.cmdRegSupplier.BackgroundImage = CType(resources.GetObject("cmdRegSupplier.BackgroundImage"), System.Drawing.Image)
-        Me.cmdRegSupplier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmdRegSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdRegSupplier.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdRegSupplier.Location = New System.Drawing.Point(91, 353)
-        Me.cmdRegSupplier.Name = "cmdRegSupplier"
-        Me.cmdRegSupplier.Size = New System.Drawing.Size(260, 201)
-        Me.cmdRegSupplier.TabIndex = 2
-        Me.cmdRegSupplier.UseVisualStyleBackColor = True
-        '
-        'cmdCustomer
-        '
-        Me.cmdCustomer.BackgroundImage = Global.mgmpos.My.Resources.Resources.costumer
-        Me.cmdCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmdCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdCustomer.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdCustomer.Location = New System.Drawing.Point(370, 76)
-        Me.cmdCustomer.Name = "cmdCustomer"
-        Me.cmdCustomer.Size = New System.Drawing.Size(272, 237)
-        Me.cmdCustomer.TabIndex = 1
-        Me.cmdCustomer.UseVisualStyleBackColor = True
-        '
-        'cmdProduct
-        '
-        Me.cmdProduct.BackgroundImage = Global.mgmpos.My.Resources.Resources.download1
-        Me.cmdProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cmdProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdProduct.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdProduct.Location = New System.Drawing.Point(92, 76)
-        Me.cmdProduct.Name = "cmdProduct"
-        Me.cmdProduct.Size = New System.Drawing.Size(259, 237)
-        Me.cmdProduct.TabIndex = 0
-        Me.cmdProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.cmdProduct.UseVisualStyleBackColor = True
-        '
         'Timer1
         '
         Me.Timer1.Enabled = True
@@ -1750,7 +1587,7 @@ Partial Class frmDashboard
         Me.PnlCustomer.Controls.Add(Me.txtCustOrgName)
         Me.PnlCustomer.Controls.Add(Me.Label39)
         Me.PnlCustomer.Controls.Add(Me.cboCustType)
-        Me.PnlCustomer.Location = New System.Drawing.Point(699, 67)
+        Me.PnlCustomer.Location = New System.Drawing.Point(395, 84)
         Me.PnlCustomer.Name = "PnlCustomer"
         Me.PnlCustomer.Size = New System.Drawing.Size(790, 625)
         Me.PnlCustomer.TabIndex = 3
@@ -1765,16 +1602,6 @@ Partial Class frmDashboard
         Me.lblobjid.TabIndex = 26
         Me.lblobjid.Text = "objid"
         Me.lblobjid.Visible = False
-        '
-        'PictureBox6
-        '
-        Me.PictureBox6.Image = Global.mgmpos.My.Resources.Resources._698627_icon_111_search_512
-        Me.PictureBox6.Location = New System.Drawing.Point(729, 12)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(34, 23)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox6.TabIndex = 25
-        Me.PictureBox6.TabStop = False
         '
         'cmdCustSearch
         '
@@ -1836,19 +1663,6 @@ Partial Class frmDashboard
         Me.cmdCustBrowse.TabIndex = 17
         Me.cmdCustBrowse.Text = "Browse"
         Me.cmdCustBrowse.UseVisualStyleBackColor = True
-        '
-        'PBCustomer
-        '
-        Me.PBCustomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PBCustomer.ErrorImage = Global.mgmpos.My.Resources.Resources.MGGM
-        Me.PBCustomer.Image = Global.mgmpos.My.Resources.Resources.MGGM
-        Me.PBCustomer.InitialImage = CType(resources.GetObject("PBCustomer.InitialImage"), System.Drawing.Image)
-        Me.PBCustomer.Location = New System.Drawing.Point(470, 72)
-        Me.PBCustomer.Name = "PBCustomer"
-        Me.PBCustomer.Size = New System.Drawing.Size(299, 233)
-        Me.PBCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PBCustomer.TabIndex = 16
-        Me.PBCustomer.TabStop = False
         '
         'Label45
         '
@@ -1981,8 +1795,7 @@ Partial Class frmDashboard
         Me.PnlMain.Controls.Add(Me.Label47)
         Me.PnlMain.Controls.Add(Me.Chart1)
         Me.PnlMain.Controls.Add(Me.Label46)
-        Me.PnlMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PnlMain.Location = New System.Drawing.Point(259, 61)
+        Me.PnlMain.Location = New System.Drawing.Point(260, 70)
         Me.PnlMain.Name = "PnlMain"
         Me.PnlMain.Size = New System.Drawing.Size(1091, 688)
         Me.PnlMain.TabIndex = 4
@@ -2008,18 +1821,18 @@ Partial Class frmDashboard
         '
         'Chart3
         '
-        ChartArea1.AxisX.Interval = 1.0R
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart3.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.Chart3.Legends.Add(Legend1)
+        ChartArea7.AxisX.Interval = 1.0R
+        ChartArea7.Name = "ChartArea1"
+        Me.Chart3.ChartAreas.Add(ChartArea7)
+        Legend7.Name = "Legend1"
+        Me.Chart3.Legends.Add(Legend7)
         Me.Chart3.Location = New System.Drawing.Point(523, 353)
         Me.Chart3.Name = "Chart3"
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series1.Legend = "Legend1"
-        Series1.Name = "Collections"
-        Me.Chart3.Series.Add(Series1)
+        Series11.ChartArea = "ChartArea1"
+        Series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series11.Legend = "Legend1"
+        Series11.Name = "Collections"
+        Me.Chart3.Series.Add(Series11)
         Me.Chart3.Size = New System.Drawing.Size(545, 285)
         Me.Chart3.TabIndex = 6
         Me.Chart3.Text = "Chart3"
@@ -2036,19 +1849,19 @@ Partial Class frmDashboard
         '
         'Chart2
         '
-        ChartArea2.AxisX.Interval = 1.0R
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend2)
+        ChartArea8.AxisX.Interval = 1.0R
+        ChartArea8.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea8)
+        Legend8.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend8)
         Me.Chart2.Location = New System.Drawing.Point(609, 50)
         Me.Chart2.Name = "Chart2"
         Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-        Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn
-        Series2.Legend = "Legend1"
-        Series2.Name = "Product Category"
-        Me.Chart2.Series.Add(Series2)
+        Series12.ChartArea = "ChartArea1"
+        Series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn
+        Series12.Legend = "Legend1"
+        Series12.Name = "Product Category"
+        Me.Chart2.Series.Add(Series12)
         Me.Chart2.Size = New System.Drawing.Size(458, 272)
         Me.Chart2.TabIndex = 4
         Me.Chart2.Text = "Chart2"
@@ -2065,31 +1878,31 @@ Partial Class frmDashboard
         '
         'Chart1
         '
-        ChartArea3.AxisX.Interval = 1.0R
-        ChartArea3.AxisX.IsLabelAutoFit = False
-        ChartArea3.AxisX.LabelStyle.Angle = -45
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea3)
-        Legend3.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend3)
+        ChartArea9.AxisX.Interval = 1.0R
+        ChartArea9.AxisX.IsLabelAutoFit = False
+        ChartArea9.AxisX.LabelStyle.Angle = -45
+        ChartArea9.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea9)
+        Legend9.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend9)
         Me.Chart1.Location = New System.Drawing.Point(56, 50)
         Me.Chart1.Name = "Chart1"
-        Series3.ChartArea = "ChartArea1"
-        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100
-        Series3.Legend = "Legend1"
-        Series3.Name = "Cash"
-        Series3.YValuesPerPoint = 4
-        Series4.ChartArea = "ChartArea1"
-        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100
-        Series4.Legend = "Legend1"
-        Series4.Name = "Cheque"
-        Series5.ChartArea = "ChartArea1"
-        Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100
-        Series5.Legend = "Legend1"
-        Series5.Name = "Terms"
-        Me.Chart1.Series.Add(Series3)
-        Me.Chart1.Series.Add(Series4)
-        Me.Chart1.Series.Add(Series5)
+        Series13.ChartArea = "ChartArea1"
+        Series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100
+        Series13.Legend = "Legend1"
+        Series13.Name = "Cash"
+        Series13.YValuesPerPoint = 4
+        Series14.ChartArea = "ChartArea1"
+        Series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100
+        Series14.Legend = "Legend1"
+        Series14.Name = "Cheque"
+        Series15.ChartArea = "ChartArea1"
+        Series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100
+        Series15.Legend = "Legend1"
+        Series15.Name = "Terms"
+        Me.Chart1.Series.Add(Series13)
+        Me.Chart1.Series.Add(Series14)
+        Me.Chart1.Series.Add(Series15)
         Me.Chart1.Size = New System.Drawing.Size(534, 278)
         Me.Chart1.TabIndex = 2
         Me.Chart1.Text = "Chart1"
@@ -2106,6 +1919,8 @@ Partial Class frmDashboard
         '
         'pnlReports
         '
+        Me.pnlReports.Controls.Add(Me.PictureBox17)
+        Me.pnlReports.Controls.Add(Me.Button8)
         Me.pnlReports.Controls.Add(Me.PictureBox16)
         Me.pnlReports.Controls.Add(Me.Button7)
         Me.pnlReports.Controls.Add(Me.PictureBox15)
@@ -2118,21 +1933,11 @@ Partial Class frmDashboard
         Me.pnlReports.Controls.Add(Me.btnCostumerReport)
         Me.pnlReports.Controls.Add(Me.btnStockReport)
         Me.pnlReports.Controls.Add(Me.btnSalesReport)
-        Me.pnlReports.Location = New System.Drawing.Point(274, 64)
+        Me.pnlReports.Location = New System.Drawing.Point(284, 67)
         Me.pnlReports.Name = "pnlReports"
         Me.pnlReports.Size = New System.Drawing.Size(1076, 691)
         Me.pnlReports.TabIndex = 4
         Me.pnlReports.Visible = False
-        '
-        'PictureBox16
-        '
-        Me.PictureBox16.Image = Global.mgmpos.My.Resources.Resources.download
-        Me.PictureBox16.Location = New System.Drawing.Point(379, 178)
-        Me.PictureBox16.Name = "PictureBox16"
-        Me.PictureBox16.Size = New System.Drawing.Size(115, 97)
-        Me.PictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox16.TabIndex = 13
-        Me.PictureBox16.TabStop = False
         '
         'Button7
         '
@@ -2145,16 +1950,6 @@ Partial Class frmDashboard
         Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button7.UseVisualStyleBackColor = True
         '
-        'PictureBox15
-        '
-        Me.PictureBox15.Image = Global.mgmpos.My.Resources.Resources.remit_handmoney
-        Me.PictureBox15.Location = New System.Drawing.Point(16, 173)
-        Me.PictureBox15.Name = "PictureBox15"
-        Me.PictureBox15.Size = New System.Drawing.Size(108, 98)
-        Me.PictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox15.TabIndex = 11
-        Me.PictureBox15.TabStop = False
-        '
         'btnRemittance
         '
         Me.btnRemittance.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -2166,16 +1961,6 @@ Partial Class frmDashboard
         Me.btnRemittance.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnRemittance.UseVisualStyleBackColor = True
         '
-        'PictureBox14
-        '
-        Me.PictureBox14.Image = CType(resources.GetObject("PictureBox14.Image"), System.Drawing.Image)
-        Me.PictureBox14.Location = New System.Drawing.Point(379, 309)
-        Me.PictureBox14.Name = "PictureBox14"
-        Me.PictureBox14.Size = New System.Drawing.Size(109, 90)
-        Me.PictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox14.TabIndex = 9
-        Me.PictureBox14.TabStop = False
-        '
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -2186,36 +1971,6 @@ Partial Class frmDashboard
         Me.Button6.Text = "View All Product "
         Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button6.UseVisualStyleBackColor = True
-        '
-        'PictureBox13
-        '
-        Me.PictureBox13.Image = Global.mgmpos.My.Resources.Resources.costumer
-        Me.PictureBox13.Location = New System.Drawing.Point(721, 35)
-        Me.PictureBox13.Name = "PictureBox13"
-        Me.PictureBox13.Size = New System.Drawing.Size(98, 97)
-        Me.PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox13.TabIndex = 7
-        Me.PictureBox13.TabStop = False
-        '
-        'PictureBox12
-        '
-        Me.PictureBox12.Image = Global.mgmpos.My.Resources.Resources.black_product_256
-        Me.PictureBox12.Location = New System.Drawing.Point(379, 35)
-        Me.PictureBox12.Name = "PictureBox12"
-        Me.PictureBox12.Size = New System.Drawing.Size(115, 97)
-        Me.PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox12.TabIndex = 6
-        Me.PictureBox12.TabStop = False
-        '
-        'PictureBox11
-        '
-        Me.PictureBox11.Image = Global.mgmpos.My.Resources.Resources.chart_increase
-        Me.PictureBox11.Location = New System.Drawing.Point(16, 35)
-        Me.PictureBox11.Name = "PictureBox11"
-        Me.PictureBox11.Size = New System.Drawing.Size(108, 98)
-        Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox11.TabIndex = 5
-        Me.PictureBox11.TabStop = False
         '
         'btnCostumerReport
         '
@@ -2250,41 +2005,301 @@ Partial Class frmDashboard
         Me.btnSalesReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnSalesReport.UseVisualStyleBackColor = True
         '
+        'Button8
+        '
+        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.Location = New System.Drawing.Point(713, 168)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(315, 114)
+        Me.Button8.TabIndex = 14
+        Me.Button8.Text = "Print Barcode"
+        Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'PictureBox17
+        '
+        Me.PictureBox17.Image = Global.mgmpos.My.Resources.Resources._5b925524e2b02_thumb900
+        Me.PictureBox17.Location = New System.Drawing.Point(723, 176)
+        Me.PictureBox17.Name = "PictureBox17"
+        Me.PictureBox17.Size = New System.Drawing.Size(98, 97)
+        Me.PictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox17.TabIndex = 15
+        Me.PictureBox17.TabStop = False
+        '
+        'PictureBox16
+        '
+        Me.PictureBox16.Image = Global.mgmpos.My.Resources.Resources.download
+        Me.PictureBox16.Location = New System.Drawing.Point(379, 178)
+        Me.PictureBox16.Name = "PictureBox16"
+        Me.PictureBox16.Size = New System.Drawing.Size(115, 97)
+        Me.PictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox16.TabIndex = 13
+        Me.PictureBox16.TabStop = False
+        '
+        'PictureBox15
+        '
+        Me.PictureBox15.Image = Global.mgmpos.My.Resources.Resources.remit_handmoney
+        Me.PictureBox15.Location = New System.Drawing.Point(16, 173)
+        Me.PictureBox15.Name = "PictureBox15"
+        Me.PictureBox15.Size = New System.Drawing.Size(108, 98)
+        Me.PictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox15.TabIndex = 11
+        Me.PictureBox15.TabStop = False
+        '
+        'PictureBox14
+        '
+        Me.PictureBox14.Image = CType(resources.GetObject("PictureBox14.Image"), System.Drawing.Image)
+        Me.PictureBox14.Location = New System.Drawing.Point(379, 309)
+        Me.PictureBox14.Name = "PictureBox14"
+        Me.PictureBox14.Size = New System.Drawing.Size(109, 90)
+        Me.PictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox14.TabIndex = 9
+        Me.PictureBox14.TabStop = False
+        '
+        'PictureBox13
+        '
+        Me.PictureBox13.Image = Global.mgmpos.My.Resources.Resources.costumer
+        Me.PictureBox13.Location = New System.Drawing.Point(721, 35)
+        Me.PictureBox13.Name = "PictureBox13"
+        Me.PictureBox13.Size = New System.Drawing.Size(98, 97)
+        Me.PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox13.TabIndex = 7
+        Me.PictureBox13.TabStop = False
+        '
+        'PictureBox12
+        '
+        Me.PictureBox12.Image = Global.mgmpos.My.Resources.Resources.black_product_256
+        Me.PictureBox12.Location = New System.Drawing.Point(379, 35)
+        Me.PictureBox12.Name = "PictureBox12"
+        Me.PictureBox12.Size = New System.Drawing.Size(115, 97)
+        Me.PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox12.TabIndex = 6
+        Me.PictureBox12.TabStop = False
+        '
+        'PictureBox11
+        '
+        Me.PictureBox11.Image = Global.mgmpos.My.Resources.Resources.chart_increase
+        Me.PictureBox11.Location = New System.Drawing.Point(16, 35)
+        Me.PictureBox11.Name = "PictureBox11"
+        Me.PictureBox11.Size = New System.Drawing.Size(108, 98)
+        Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox11.TabIndex = 5
+        Me.PictureBox11.TabStop = False
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
+        Me.PictureBox5.Location = New System.Drawing.Point(870, 21)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(30, 27)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox5.TabIndex = 17
+        Me.PictureBox5.TabStop = False
+        '
+        'pbSupp
+        '
+        Me.pbSupp.ErrorImage = CType(resources.GetObject("pbSupp.ErrorImage"), System.Drawing.Image)
+        Me.pbSupp.Image = Global.mgmpos.My.Resources.Resources.employee
+        Me.pbSupp.Location = New System.Drawing.Point(408, 70)
+        Me.pbSupp.Name = "pbSupp"
+        Me.pbSupp.Size = New System.Drawing.Size(143, 120)
+        Me.pbSupp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbSupp.TabIndex = 12
+        Me.pbSupp.TabStop = False
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = Global.mgmpos.My.Resources.Resources._698627_icon_111_search_512
+        Me.PictureBox6.Location = New System.Drawing.Point(729, 12)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(34, 23)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox6.TabIndex = 25
+        Me.PictureBox6.TabStop = False
+        '
+        'PBCustomer
+        '
+        Me.PBCustomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PBCustomer.ErrorImage = Global.mgmpos.My.Resources.Resources.MGGM
+        Me.PBCustomer.Image = Global.mgmpos.My.Resources.Resources.MGGM
+        Me.PBCustomer.InitialImage = CType(resources.GetObject("PBCustomer.InitialImage"), System.Drawing.Image)
+        Me.PBCustomer.Location = New System.Drawing.Point(470, 72)
+        Me.PBCustomer.Name = "PBCustomer"
+        Me.PBCustomer.Size = New System.Drawing.Size(299, 233)
+        Me.PBCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PBCustomer.TabIndex = 16
+        Me.PBCustomer.TabStop = False
+        '
+        'cmdRegisterEmp
+        '
+        Me.cmdRegisterEmp.BackgroundImage = Global.mgmpos.My.Resources.Resources.employee
+        Me.cmdRegisterEmp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmdRegisterEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdRegisterEmp.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdRegisterEmp.Location = New System.Drawing.Point(374, 353)
+        Me.cmdRegisterEmp.Name = "cmdRegisterEmp"
+        Me.cmdRegisterEmp.Size = New System.Drawing.Size(272, 201)
+        Me.cmdRegisterEmp.TabIndex = 3
+        Me.cmdRegisterEmp.UseVisualStyleBackColor = True
+        '
+        'cmdRegSupplier
+        '
+        Me.cmdRegSupplier.BackgroundImage = CType(resources.GetObject("cmdRegSupplier.BackgroundImage"), System.Drawing.Image)
+        Me.cmdRegSupplier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmdRegSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdRegSupplier.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdRegSupplier.Location = New System.Drawing.Point(91, 353)
+        Me.cmdRegSupplier.Name = "cmdRegSupplier"
+        Me.cmdRegSupplier.Size = New System.Drawing.Size(260, 201)
+        Me.cmdRegSupplier.TabIndex = 2
+        Me.cmdRegSupplier.UseVisualStyleBackColor = True
+        '
+        'cmdCustomer
+        '
+        Me.cmdCustomer.BackgroundImage = Global.mgmpos.My.Resources.Resources.costumer
+        Me.cmdCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmdCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdCustomer.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdCustomer.Location = New System.Drawing.Point(370, 76)
+        Me.cmdCustomer.Name = "cmdCustomer"
+        Me.cmdCustomer.Size = New System.Drawing.Size(272, 237)
+        Me.cmdCustomer.TabIndex = 1
+        Me.cmdCustomer.UseVisualStyleBackColor = True
+        '
+        'cmdProduct
+        '
+        Me.cmdProduct.BackgroundImage = Global.mgmpos.My.Resources.Resources.download1
+        Me.cmdProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cmdProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdProduct.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdProduct.Location = New System.Drawing.Point(92, 76)
+        Me.cmdProduct.Name = "cmdProduct"
+        Me.cmdProduct.Size = New System.Drawing.Size(259, 237)
+        Me.cmdProduct.TabIndex = 0
+        Me.cmdProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.cmdProduct.UseVisualStyleBackColor = True
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
+        Me.PictureBox4.Location = New System.Drawing.Point(875, 21)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(30, 27)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 17
+        Me.PictureBox4.TabStop = False
+        '
+        'pbEmp
+        '
+        Me.pbEmp.ErrorImage = CType(resources.GetObject("pbEmp.ErrorImage"), System.Drawing.Image)
+        Me.pbEmp.Image = Global.mgmpos.My.Resources.Resources.employee
+        Me.pbEmp.Location = New System.Drawing.Point(491, 89)
+        Me.pbEmp.Name = "pbEmp"
+        Me.pbEmp.Size = New System.Drawing.Size(191, 164)
+        Me.pbEmp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbEmp.TabIndex = 12
+        Me.pbEmp.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(1008, 14)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(31, 27)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 8
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox10
+        '
+        Me.PictureBox10.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox10.Image = CType(resources.GetObject("PictureBox10.Image"), System.Drawing.Image)
+        Me.PictureBox10.Location = New System.Drawing.Point(12, 166)
+        Me.PictureBox10.Name = "PictureBox10"
+        Me.PictureBox10.Size = New System.Drawing.Size(75, 79)
+        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox10.TabIndex = 10
+        Me.PictureBox10.TabStop = False
+        '
+        'PictureBox9
+        '
+        Me.PictureBox9.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox9.Image = Global.mgmpos.My.Resources.Resources.reports
+        Me.PictureBox9.Location = New System.Drawing.Point(12, 589)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(89, 71)
+        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox9.TabIndex = 8
+        Me.PictureBox9.TabStop = False
+        '
+        'PictureBox8
+        '
+        Me.PictureBox8.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox8.Image = Global.mgmpos.My.Resources.Resources._220px_UPC_A_036000291452_svg
+        Me.PictureBox8.Location = New System.Drawing.Point(12, 480)
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.Size = New System.Drawing.Size(89, 71)
+        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox8.TabIndex = 6
+        Me.PictureBox8.TabStop = False
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox7.Image = Global.mgmpos.My.Resources.Resources.black_product_256
+        Me.PictureBox7.Location = New System.Drawing.Point(12, 378)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(89, 71)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox7.TabIndex = 4
+        Me.PictureBox7.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.Image = Global.mgmpos.My.Resources.Resources.return_icon
+        Me.PictureBox3.Location = New System.Drawing.Point(12, 270)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(75, 79)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 1
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.mgmpos.My.Resources.Resources.MGGM
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(225, 117)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
         'frmDashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1350, 749)
         Me.Controls.Add(Me.PnlMain)
-        Me.Controls.Add(Me.pnlEmployee)
-        Me.Controls.Add(Me.pnlReports)
         Me.Controls.Add(Me.panelProduct)
+        Me.Controls.Add(Me.pnlEmployee)
+        Me.Controls.Add(Me.panelContextRegister)
+        Me.Controls.Add(Me.pnlReports)
         Me.Controls.Add(Me.panelSupplier)
         Me.Controls.Add(Me.PnlCustomer)
-        Me.Controls.Add(Me.panelContextRegister)
         Me.Controls.Add(Me.panelHeader)
         Me.Controls.Add(Me.panelMenu)
         Me.Name = "frmDashboard"
         Me.Text = "CasianoPos v 0.1 Alpha"
         Me.panelMenu.ResumeLayout(False)
         Me.panelMenu.PerformLayout()
-        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlEmployee.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbEmp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelSupplier.ResumeLayout(False)
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
         CType(Me.DGSupplier, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbSupp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelProduct.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.TabControlProduct.ResumeLayout(False)
@@ -2298,7 +2313,6 @@ Partial Class frmDashboard
         Me.GroupBox4.PerformLayout()
         Me.tab_product.ResumeLayout(False)
         Me.tab_product.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dg_product, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
@@ -2308,8 +2322,6 @@ Partial Class frmDashboard
         Me.panelContextRegister.PerformLayout()
         Me.PnlCustomer.ResumeLayout(False)
         Me.PnlCustomer.PerformLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PBCustomer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlMain.ResumeLayout(False)
         Me.PnlMain.PerformLayout()
         CType(Me.homedgproduct, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2317,12 +2329,26 @@ Partial Class frmDashboard
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlReports.ResumeLayout(False)
+        CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbSupp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PBCustomer, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbEmp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2512,4 +2538,6 @@ Partial Class frmDashboard
     Friend WithEvents btnRemittance As Button
     Friend WithEvents PictureBox16 As PictureBox
     Friend WithEvents Button7 As Button
+    Friend WithEvents PictureBox17 As PictureBox
+    Friend WithEvents Button8 As Button
 End Class

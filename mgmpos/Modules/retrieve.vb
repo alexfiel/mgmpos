@@ -4,7 +4,7 @@ Module retrieve
     Public Sub getUnremitted()
         Try
             dbConnection()
-            sql = "SELECT trans_no,costumer,modeofpayment,subtotal,vat,discount,amountdue,date FROM newpost_database.transaction where status='onhold' and userid=@userid group by modeofpayment, trans_no; "
+            sql = "SELECT trans_no,costumer,modeofpayment,subtotal,vat,discount,amountdue,date FROM newpost_database.transaction where status<>'remitted' and remitID is Null and userid=@userid group by modeofpayment, trans_no; "
             cmd = New MySqlCommand(sql, conn)
             dt = New DataTable
             da = New MySqlDataAdapter
@@ -48,6 +48,7 @@ Module retrieve
     End Sub
 
     Public Sub getTransctionNo()
+        Dim translookup As String = globalLookup
         Try
             dbConnection()
             sql = "select a.trans_no,a.costumer,a.address,b.transID,b.prodcode,c.prodname,b.qty,b.price,b.amount,a.subtotal,a.vat,a.discount,a.amountdue,a.date,a.status from transaction as a inner join transdetails as b on a.trans_no = b.transID inner join product as c on b.prodcode = c.prodcode where a.trans_no=@transnolookup and a.status <> 'void' ;"
@@ -57,7 +58,8 @@ Module retrieve
             da.SelectCommand = cmd
             With cmd
                 .Parameters.Clear()
-                .Parameters.AddWithValue("@transnolookup", frmReturnItem.txttransnoSearch.Text)
+                .Parameters.AddWithValue("@transnolookup", translookup)
+
             End With
 
             da.Fill(dt)
@@ -80,6 +82,54 @@ Module retrieve
 
                 frmReturnItem.dgtransaction.DataSource = dt
                 With frmReturnItem.dgtransaction
+                    ' Dim dgvCheck As New DataGridViewCheckBoxColumn()
+                    ' dgvCheck.HeaderText = "Check Box"
+                    ' .Columns.Add(dgvCheck)
+                    .Columns(0).HeaderCell.Value = "Trans #"
+                    .Columns(0).Width = 100
+                    .Columns(0).Visible = False
+                    .Columns(1).Visible = False
+                    .Columns(2).Visible = False
+                    .Columns(3).Visible = False
+                    .Columns(9).Visible = False
+                    .Columns(10).Visible = False
+                    .Columns(11).Visible = False
+                    .Columns(12).Visible = False
+                    .Columns(13).Visible = False
+                    .Columns(14).Visible = False
+                    '  .Columns(15).Visible = False
+                    .Columns(4).HeaderCell.Value = "Product Code"
+                    .Columns(4).Width = 150
+                    .Columns(5).HeaderCell.Value = "Product Name"
+                    .Columns(5).Width = 250
+                    .Columns(6).HeaderCell.Value = "QTY"
+                    .Columns(6).Width = 50
+                    .Columns(7).HeaderCell.Value = "Price"
+                    .Columns(7).Width = 100
+
+                End With
+                '*************************************************
+                ' for the REX transaction
+
+
+
+                transNO = dt.Rows(0).Item(0)
+                transName = dt.Rows(0).Item(1)
+                transadd = dt.Rows(0).Item(2)
+                frmREX.txttransno.Text = transNO
+                frmREX.txttransdate.Text = dt.Rows(0).Item(13)
+                frmREX.txtcostumer.Text = transName
+                frmREX.txtaddress.Text = transadd
+                frmREX.txtsubtotal.Text = dt.Rows(0).Item(9)
+                frmREX.txtvat.Text = dt.Rows(0).Item(10)
+                frmREX.txtdiscount.Text = dt.Rows(0).Item(11)
+                frmREX.txtamountdue.Text = dt.Rows(0).Item(12)
+
+                frmREX.dgtransaction.DataSource = dt
+                With frmREX.dgtransaction
+                    Dim dgvCheck As New DataGridViewCheckBoxColumn()
+                    dgvCheck.HeaderText = "Check Box"
+                    .Columns.Add(dgvCheck)
                     .RowHeadersVisible = False
                     .Columns(0).HeaderCell.Value = "Trans #"
                     .Columns(0).Width = 100
@@ -92,6 +142,7 @@ Module retrieve
                     .Columns(11).Visible = False
                     .Columns(12).Visible = False
                     .Columns(13).Visible = False
+                    .Columns(14).Visible = False
                     .Columns(4).HeaderCell.Value = "Product Code"
                     .Columns(4).Width = 150
                     .Columns(5).HeaderCell.Value = "Product Name"
@@ -102,10 +153,68 @@ Module retrieve
                     .Columns(7).Width = 100
 
                 End With
-                frmReturnItem.txtreason.Focus()
+
+                'frmREX.txtreason.Focus()
             Else
                 MsgBox("Either the transaction no has already been voided or Transaction no. does not exist! ", vbInformation, "No Result")
             End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+            da.Dispose()
+            cmd.Dispose()
+
+        End Try
+    End Sub
+    Public Sub checkproductcode_exchangeitem()
+        Try
+            dbConnection()
+            sql = "select prodcode,prodname,prodcategory,uom,prodsrp,prod_begin_qty from product where concat(prodcode,prodname) like '%' @PRODLOOKUP '%';"
+            cmd = New MySqlCommand(sql, conn)
+            dt = New DataTable
+            da = New MySqlDataAdapter
+            da.SelectCommand = cmd
+            With cmd
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@PRODLOOKUP", frmReturnItem.txtprodcode_ret.Text)
+            End With
+
+            da.Fill(dt)
+            If dt.Rows.Count > 0 Then
+
+                'frmPOS.ComboBox1.Text = frmPOS.txtPOSearch.Text
+
+                Dim prodBegQty As Double
+                Dim prodcode, prodname, unitprice As String
+                prodcode = dt.Rows(0).Item(0)
+                prodname = dt.Rows(0).Item(1)
+                unitprice = dt.Rows(0).Item(4)
+                prodBegQty = dt.Rows(0).Item(5)
+                If prodBegQty <= 0 Then
+                    MsgBox("Sorry no more inventory of" + prodname)
+                ElseIf unitprice <= 0 Then
+                    MsgBox("The items has no price" + prodname)
+                Else
+                    frmreturnQTY.txtprodcode.Text = prodcode
+                    frmreturnQTY.txtprodname.Text = prodname
+                    frmreturnQTY.txtunitprice.Text = unitprice
+                    frmreturnQTY.txtqty.Text = prodBegQty
+
+                    frmreturnQTY.ShowDialog()
+                    frmreturnQTY.Dispose()
+
+                End If
+
+
+            Else
+                MsgBox("No Product Found! ")
+                frmReturnItem.txtprodcode_ret.Text = ""
+                frmReturnItem.txtprodcode_ret.Focus()
+
+
+            End If
+
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -200,6 +309,78 @@ Module retrieve
         Finally
             conn.Close()
             dr.Close()
+        End Try
+    End Sub
+
+
+    Public Sub GetCustLedger()
+        Try
+            dbConnection()
+            'sql = "select objid,costumerType,orgName,firstname,lastname,address,contact,email from customer where concat(firstname,lastname,orgName) like '%' @COSTUMERLIST '%';"
+            sql = "SELECT a.objid,a.firstname,a.lastname,a.address,a.contact,a.email,b.transactionID,b.transactiondate,b.term_due_date,b.trans_type,b.cr,b.dr FROM newpost_database.customer as a, costumer_ledger as b where a.objid = b.custobjid and a.objid=@cObjid order by b.transactionDate desc;"
+            cmd = New MySqlCommand
+            cmd = New MySqlCommand(sql, conn)
+            With cmd
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@cObjid", frmCollection.lblCostId.Text)
+                .ExecuteNonQuery()
+
+            End With
+            dt = New DataTable
+            da = New MySqlDataAdapter
+            da.SelectCommand = cmd
+            da.Fill(dt)
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+            da.Dispose()
+            cmd.Dispose()
+            If dt.Rows.Count = 0 Then
+                MsgBox("No results!")
+
+            End If
+            frmCollection.dgledger.DataSource = dt
+
+            With frmCollection.dgledger
+                .Columns(0).Visible = False
+                .Columns(1).Visible = False
+                .Columns(2).Visible = False
+                .Columns(3).Visible = False
+                .Columns(4).Visible = False
+                .Columns(5).Visible = False
+
+                .RowHeadersVisible = False
+                .Columns(6).HeaderCell.Value = "Ref. No"
+                .Columns(6).Width = 200
+
+                .Columns(7).HeaderCell.Value = "Trans. Date"
+                .Columns(7).Width = 80
+                .Columns(8).HeaderCell.Value = "Due Date"
+                .Columns(8).Width = 80
+                .Columns(9).HeaderCell.Value = "Transaction"
+                .Columns(9).Width = 200
+                .Columns(10).HeaderCell.Value = "Cr"
+                .Columns(10).Width = 200
+                .Columns(11).HeaderCell.Value = "Dr"
+                .Columns(11).Width = 200
+            End With
+            If frmCollection.dgledger.RowCount > 1 Then
+                Dim cr As Double = 0
+                Dim dr As Double = 0
+                Dim tpayables As Double = 0
+                For inn As Integer = 0 To frmCollection.dgledger.RowCount - 1
+                    dr += Convert.ToDouble(frmCollection.dgledger.Rows(inn).Cells(11).Value)
+                    cr += Convert.ToDouble(frmCollection.dgledger.Rows(inn).Cells(10).Value)
+                Next
+                frmCollection.totalCollectibles.Text = (dr.ToString("N"))
+                frmCollection.TotalPayment.Text = (cr.ToString("N"))
+                tpayables = dr - cr
+                frmCollection.TBal.Text = tpayables.ToString("#,##0.00")
+
+            End If
+
         End Try
     End Sub
     Public Sub GetCustomerList()
@@ -452,6 +633,37 @@ Module retrieve
 
 
     End Sub
+    Public Sub retrieveVoid_receipts()
+        Try
+            dbConnection()
+
+            sql = "SELECT * FROM newpost_database.voidtransaction where transno =@transno;"
+            cmd = New MySqlCommand(sql, conn)
+            With cmd
+                .Connection = conn
+                .CommandText = sql
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@transno", frmReturnItem.txttransno.Text)
+                .ExecuteNonQuery()
+
+            End With
+            da = New MySqlDataAdapter
+            dt = New DataTable
+            da.SelectCommand = cmd
+            da.Fill(dt)
+            ' reportsDGV.DataSource = dt
+            Dim report As New voidreceipts
+            report.SetDataSource(dt)
+            frmReport_product.GBRemittance.ReportSource = report
+            frmReport_product.GBRemittance.Refresh()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+
+        End Try
+
+    End Sub
     Public Sub retrieveTransaction_ChargeInvoice()
         Dim report As New chargeInvoice
         Dim transno As Int64 = frmPOS.lbltransno.Text
@@ -460,6 +672,108 @@ Module retrieve
         frmReport.CrystalReportViewer1.Refresh()
         frmReport.CrystalReportViewer1.RefreshReport()
         frmReport.ShowDialog()
+    End Sub
+    Public Sub retrieveCostLedger()
+        Try
+            dbConnection()
+            ' sql = "Select a.prodcode, a.prodname, a.prodcategory,a.prod_begin_qty,a.uom,b.qtyin,b.trasno,b.refno,b.locid,b.date from product a left outer join invetory_in b On a.prodcode = b.prodcode;"
+            'sql = "Select idproduct,prodcode,prodname,prod_description,prodcategory,uom,prodsupplier,prodsupprice,prodmarkup,prodsrp,prod_begin_qty,prod_reorder_qty from product where concat(prodcode,prodname) Like '%' @ProdName '%'"
+
+            'sql = "SELECT a.objid,a.firstname,a.lastname,a.address,a.contact,a.email,b.transactionID,b.transactiondate,b.term_due_date,b.trans_type,b.cr,b.dr FROM newpost_database.customer as a, costumer_ledger as b where a.objid = b.custobjid and a.objid=@cObjid order by b.transactionDate desc;"
+            sql = "select * from newpost_database.costumer_ledger where custobjid=@cObjid order by transactionDate asc;"
+            cmd = New MySqlCommand
+            cmd = New MySqlCommand(sql, conn)
+            With cmd
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@cObjid", frmCollection.lblCostId.Text)
+                .ExecuteNonQuery()
+
+            End With
+
+            da = New MySqlDataAdapter
+            dt = New DataTable
+            da.SelectCommand = cmd
+            da.Fill(dt)
+            ' reportsDGV.DataSource = dt
+            Dim report As New customerledger
+            report.SetDataSource(dt)
+            frmReport.CrystalReportViewer1.ReportSource = report
+            frmReport.CrystalReportViewer1.Refresh()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+
+
+
+        End Try
+    End Sub
+    Public Sub retrieveVoidedTransaction()
+        Try
+            dbConnection()
+            ' sql = "Select a.prodcode, a.prodname, a.prodcategory,a.prod_begin_qty,a.uom,b.qtyin,b.trasno,b.refno,b.locid,b.date from product a left outer join invetory_in b On a.prodcode = b.prodcode;"
+            'sql = "Select idproduct,prodcode,prodname,prod_description,prodcategory,uom,prodsupplier,prodsupprice,prodmarkup,prodsrp,prod_begin_qty,prod_reorder_qty from product where concat(prodcode,prodname) Like '%' @ProdName '%'"
+            sql = "select * from newpost_database.transaction where trans_no=@transno;"
+            cmd = New MySqlCommand(sql, conn)
+            With cmd
+                .Connection = conn
+                .CommandText = sql
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@transno", frmReturnItem.txttransno.Text)
+                .ExecuteNonQuery()
+            End With
+            da = New MySqlDataAdapter
+            dt = New DataTable
+            da.SelectCommand = cmd
+            da.Fill(dt)
+            ' reportsDGV.DataSource = dt
+            Dim report As New salesvoid
+            report.SetDataSource(dt)
+            frmReport.CrystalReportViewer1.ReportSource = report
+            frmReport.CrystalReportViewer1.Refresh()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+
+
+
+        End Try
+    End Sub
+    Public Sub retrieveCollectionPaymentReceipt()
+        Try
+            dbConnection()
+            ' sql = "Select a.prodcode, a.prodname, a.prodcategory,a.prod_begin_qty,a.uom,b.qtyin,b.trasno,b.refno,b.locid,b.date from product a left outer join invetory_in b On a.prodcode = b.prodcode;"
+            'sql = "Select idproduct,prodcode,prodname,prod_description,prodcategory,uom,prodsupplier,prodsupprice,prodmarkup,prodsrp,prod_begin_qty,prod_reorder_qty from product where concat(prodcode,prodname) Like '%' @ProdName '%'"
+            sql = "select * from newpost_database.transaction where trans_no=@transno;"
+            cmd = New MySqlCommand(sql, conn)
+            With cmd
+                .Connection = conn
+                .CommandText = sql
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@transno", frmAddPayment.lblPaymentTransNo.Text)
+                .ExecuteNonQuery()
+            End With
+            da = New MySqlDataAdapter
+            dt = New DataTable
+            da.SelectCommand = cmd
+            da.Fill(dt)
+            ' reportsDGV.DataSource = dt
+            Dim report As New collectionReceipt
+            report.SetDataSource(dt)
+            frmReport.CrystalReportViewer1.ReportSource = report
+            frmReport.CrystalReportViewer1.Refresh()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+
+
+
+        End Try
     End Sub
 
     Public Sub retrieveCashonHand() 'report
@@ -716,7 +1030,7 @@ Module retrieve
         Dim xyear As Integer
         xyear = dte.Year
 
-        Dim number As Integer
+        Dim number As Int64
         Try
             dbConnection()
             sql = "select max(trans_no) from transaction;"
@@ -743,11 +1057,146 @@ Module retrieve
 
         End Try
     End Sub
+    Public Function getNewTransNo_Expense() As Integer
+
+
+        Dim number As Integer
+
+
+        Try
+            dbConnection()
+            sql = "Select max(value) from sys_control_counter where con_name ='Expense';"
+            cmd = New MySqlCommand
+            With cmd
+                .Connection = conn
+                .CommandText = sql
+
+                If IsDBNull(cmd.ExecuteScalar) Then
+
+                    number = 700000
+
+                    'MsgBox(num_value)
+                Else
+                    number = cmd.ExecuteScalar + 1
+
+                    ' MsgBox(num_value)
+                End If
+
+            End With
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+
+        End Try
+        Return number
+    End Function
+    Public Function getNewTransNo_Collection() As Integer
+
+        ' Dim num_value As Integer
+        Dim number As Integer
+
+
+        Try
+            dbConnection()
+            sql = "Select max(value) from sys_control_counter where con_name ='Collection';"
+            cmd = New MySqlCommand
+            With cmd
+                .Connection = conn
+                .CommandText = sql
+
+                If IsDBNull(cmd.ExecuteScalar) Then
+
+                    number = 500000
+                    ' num_value = number
+                    'MsgBox(num_value)
+                Else
+                    number = cmd.ExecuteScalar + 1
+                    ' num_value = number
+                    ' MsgBox(num_value)
+                End If
+
+            End With
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+
+        End Try
+
+        Return number
+    End Function
+    Public Function getNewTransNo_Term() As Integer
+
+        Dim number As Integer
+
+
+        Try
+            dbConnection()
+            sql = "Select max(value) from sys_control_counter where con_name ='Term';"
+            cmd = New MySqlCommand
+            With cmd
+                .Connection = conn
+                .CommandText = sql
+
+                If IsDBNull(cmd.ExecuteScalar) Then
+
+                    number = 300000
+
+                    'MsgBox(num_value)
+                Else
+                    number = cmd.ExecuteScalar + 1
+
+                    ' MsgBox(num_value)
+                End If
+
+            End With
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+
+        End Try
+        Return number
+    End Function
+    Public Function getNewTransNo_Cash() As Integer
+        'Dim dateYear As String
+
+        Dim number As Integer
+
+        Try
+            dbConnection()
+            sql = "Select max(value) from sys_control_counter where con_name ='Cash';"
+            cmd = New MySqlCommand
+            With cmd
+                .Connection = conn
+                .CommandText = sql
+
+                If IsDBNull(cmd.ExecuteScalar) Then
+
+                    number = 100000
+
+                    'MsgBox(num_value)
+                Else
+                    number = cmd.ExecuteScalar + 1
+
+                    ' MsgBox(num_value)
+                End If
+
+            End With
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+
+        End Try
+        Return number
+    End Function
     Public Sub getPOno()
         Dim number As Integer
         Try
             dbConnection()
-            sql = "select max(purno) from purchaseorder;"
+            sql = "Select max(purno) from purchaseorder;"
             cmd = New MySqlCommand
             With cmd
                 .Connection = conn
@@ -778,7 +1227,7 @@ Module retrieve
         Dim currentdate As Date
         Try
             dbConnection()
-            sql = "select date(now()) datenow;"
+            sql = "Select Date(now()) datenow;"
             cmd = New MySqlCommand(sql, conn)
             dr = cmd.ExecuteReader
             If dr.HasRows Then

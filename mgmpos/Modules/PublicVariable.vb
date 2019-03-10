@@ -23,7 +23,7 @@ Module PublicVariable
     Public quantity As String
     Public discount As Double
 
-    Public vat As Double = 0.12
+    Public vat As Double = 0 '
     Public vatprice As Double
     Public newprice As Double
     Public totalunitprice As Double
@@ -47,4 +47,9 @@ Module PublicVariable
     Public cashonhandobjid As String
     Public objid As String
     Public Gremittanceid As String
+
+    Public trans_source As String
+    Public newNumber As String
+
+    Public globalLookup As String
 End Module

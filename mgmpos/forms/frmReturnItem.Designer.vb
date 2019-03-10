@@ -28,7 +28,7 @@ Partial Class frmReturnItem
         Me.Button2 = New System.Windows.Forms.Button()
         Me.txttransnoSearch = New System.Windows.Forms.TextBox()
         Me.dgtransaction = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmdReturn = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txttransno = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -47,8 +47,28 @@ Partial Class frmReturnItem
         Me.txtamountdue = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtreason = New System.Windows.Forms.TextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.txtReturnTotalAmount = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.txtReturnDiscount = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txtReturnVat = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtReturnSubTotal = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtprodcode_ret = New System.Windows.Forms.TextBox()
+        Me.dgReturnItems = New System.Windows.Forms.DataGridView()
+        Me.colPCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colPName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colUnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colQty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colDiscount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colAmount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.dgtransaction, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.dgReturnItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -61,7 +81,7 @@ Partial Class frmReturnItem
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(680, 64)
+        Me.Panel1.Size = New System.Drawing.Size(1333, 64)
         Me.Panel1.TabIndex = 0
         '
         'Button3
@@ -110,17 +130,17 @@ Partial Class frmReturnItem
         Me.dgtransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgtransaction.Location = New System.Drawing.Point(12, 285)
         Me.dgtransaction.Name = "dgtransaction"
-        Me.dgtransaction.Size = New System.Drawing.Size(656, 156)
+        Me.dgtransaction.Size = New System.Drawing.Size(656, 198)
         Me.dgtransaction.TabIndex = 1
         '
-        'Button1
+        'cmdReturn
         '
-        Me.Button1.Location = New System.Drawing.Point(578, 447)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(90, 42)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Return"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.cmdReturn.Location = New System.Drawing.Point(6, 271)
+        Me.cmdReturn.Name = "cmdReturn"
+        Me.cmdReturn.Size = New System.Drawing.Size(90, 42)
+        Me.cmdReturn.TabIndex = 2
+        Me.cmdReturn.Text = "Void"
+        Me.cmdReturn.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -290,12 +310,174 @@ Partial Class frmReturnItem
         Me.txtreason.Size = New System.Drawing.Size(316, 75)
         Me.txtreason.TabIndex = 20
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label14)
+        Me.GroupBox1.Controls.Add(Me.txtReturnTotalAmount)
+        Me.GroupBox1.Controls.Add(Me.Label15)
+        Me.GroupBox1.Controls.Add(Me.txtReturnDiscount)
+        Me.GroupBox1.Controls.Add(Me.Label16)
+        Me.GroupBox1.Controls.Add(Me.txtReturnVat)
+        Me.GroupBox1.Controls.Add(Me.Label17)
+        Me.GroupBox1.Controls.Add(Me.txtReturnSubTotal)
+        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.txtprodcode_ret)
+        Me.GroupBox1.Controls.Add(Me.dgReturnItems)
+        Me.GroupBox1.Controls.Add(Me.cmdReturn)
+        Me.GroupBox1.Location = New System.Drawing.Point(677, 70)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(656, 419)
+        Me.GroupBox1.TabIndex = 21
+        Me.GroupBox1.TabStop = False
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(362, 345)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(108, 20)
+        Me.Label14.TabIndex = 31
+        Me.Label14.Text = "Total Amount:"
+        '
+        'txtReturnTotalAmount
+        '
+        Me.txtReturnTotalAmount.Enabled = False
+        Me.txtReturnTotalAmount.Location = New System.Drawing.Point(472, 345)
+        Me.txtReturnTotalAmount.Name = "txtReturnTotalAmount"
+        Me.txtReturnTotalAmount.Size = New System.Drawing.Size(172, 20)
+        Me.txtReturnTotalAmount.TabIndex = 30
+        Me.txtReturnTotalAmount.Text = "0"
+        Me.txtReturnTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(390, 319)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(76, 20)
+        Me.Label15.TabIndex = 29
+        Me.Label15.Text = "Discount:"
+        '
+        'txtReturnDiscount
+        '
+        Me.txtReturnDiscount.Enabled = False
+        Me.txtReturnDiscount.Location = New System.Drawing.Point(472, 319)
+        Me.txtReturnDiscount.Name = "txtReturnDiscount"
+        Me.txtReturnDiscount.Size = New System.Drawing.Size(172, 20)
+        Me.txtReturnDiscount.TabIndex = 28
+        Me.txtReturnDiscount.Text = "0"
+        Me.txtReturnDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(427, 293)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(38, 20)
+        Me.Label16.TabIndex = 27
+        Me.Label16.Text = "Vat:"
+        '
+        'txtReturnVat
+        '
+        Me.txtReturnVat.Enabled = False
+        Me.txtReturnVat.Location = New System.Drawing.Point(472, 293)
+        Me.txtReturnVat.Name = "txtReturnVat"
+        Me.txtReturnVat.Size = New System.Drawing.Size(172, 20)
+        Me.txtReturnVat.TabIndex = 26
+        Me.txtReturnVat.Text = "0"
+        Me.txtReturnVat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(384, 267)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(81, 20)
+        Me.Label17.TabIndex = 25
+        Me.Label17.Text = "Sub Total:"
+        '
+        'txtReturnSubTotal
+        '
+        Me.txtReturnSubTotal.Enabled = False
+        Me.txtReturnSubTotal.Location = New System.Drawing.Point(472, 267)
+        Me.txtReturnSubTotal.Name = "txtReturnSubTotal"
+        Me.txtReturnSubTotal.Size = New System.Drawing.Size(172, 20)
+        Me.txtReturnSubTotal.TabIndex = 24
+        Me.txtReturnSubTotal.Text = "0"
+        Me.txtReturnSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(244, 19)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(106, 20)
+        Me.Label12.TabIndex = 20
+        Me.Label12.Text = "Product Code"
+        '
+        'txtprodcode_ret
+        '
+        Me.txtprodcode_ret.Location = New System.Drawing.Point(356, 19)
+        Me.txtprodcode_ret.Name = "txtprodcode_ret"
+        Me.txtprodcode_ret.Size = New System.Drawing.Size(294, 20)
+        Me.txtprodcode_ret.TabIndex = 1
+        '
+        'dgReturnItems
+        '
+        Me.dgReturnItems.AllowUserToAddRows = False
+        Me.dgReturnItems.AllowUserToDeleteRows = False
+        Me.dgReturnItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgReturnItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colPCode, Me.colPName, Me.colUnitPrice, Me.colQty, Me.colDiscount, Me.colAmount})
+        Me.dgReturnItems.Location = New System.Drawing.Point(6, 52)
+        Me.dgReturnItems.Name = "dgReturnItems"
+        Me.dgReturnItems.ReadOnly = True
+        Me.dgReturnItems.Size = New System.Drawing.Size(644, 209)
+        Me.dgReturnItems.TabIndex = 0
+        '
+        'colPCode
+        '
+        Me.colPCode.HeaderText = "PCode"
+        Me.colPCode.Name = "colPCode"
+        '
+        'colPName
+        '
+        Me.colPName.HeaderText = "Product Name"
+        Me.colPName.Name = "colPName"
+        Me.colPName.Width = 150
+        '
+        'colUnitPrice
+        '
+        Me.colUnitPrice.HeaderText = "Unit Price"
+        Me.colUnitPrice.Name = "colUnitPrice"
+        '
+        'colQty
+        '
+        Me.colQty.HeaderText = "Qty"
+        Me.colQty.Name = "colQty"
+        Me.colQty.Width = 50
+        '
+        'colDiscount
+        '
+        Me.colDiscount.HeaderText = "Discount"
+        Me.colDiscount.Name = "colDiscount"
+        '
+        'colAmount
+        '
+        Me.colAmount.HeaderText = "Amount"
+        Me.colAmount.Name = "colAmount"
+        '
         'frmReturnItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SeaShell
-        Me.ClientSize = New System.Drawing.Size(680, 501)
+        Me.ClientSize = New System.Drawing.Size(1333, 501)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.txtreason)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
@@ -314,7 +496,6 @@ Partial Class frmReturnItem
         Me.Controls.Add(Me.txtcostumer)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txttransno)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.dgtransaction)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -324,6 +505,9 @@ Partial Class frmReturnItem
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.dgtransaction, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.dgReturnItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -332,7 +516,7 @@ Partial Class frmReturnItem
     Friend WithEvents Panel1 As Panel
     Friend WithEvents txttransnoSearch As TextBox
     Friend WithEvents dgtransaction As DataGridView
-    Friend WithEvents Button1 As Button
+    Friend WithEvents cmdReturn As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents txttransno As TextBox
     Friend WithEvents Label3 As Label
@@ -354,4 +538,22 @@ Partial Class frmReturnItem
     Friend WithEvents txtamountdue As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents txtreason As TextBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents txtprodcode_ret As TextBox
+    Friend WithEvents dgReturnItems As DataGridView
+    Friend WithEvents Label14 As Label
+    Friend WithEvents txtReturnTotalAmount As TextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents txtReturnDiscount As TextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents txtReturnVat As TextBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents txtReturnSubTotal As TextBox
+    Friend WithEvents colPCode As DataGridViewTextBoxColumn
+    Friend WithEvents colPName As DataGridViewTextBoxColumn
+    Friend WithEvents colUnitPrice As DataGridViewTextBoxColumn
+    Friend WithEvents colQty As DataGridViewTextBoxColumn
+    Friend WithEvents colDiscount As DataGridViewTextBoxColumn
+    Friend WithEvents colAmount As DataGridViewTextBoxColumn
 End Class

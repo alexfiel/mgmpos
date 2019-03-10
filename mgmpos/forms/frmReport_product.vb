@@ -21,7 +21,7 @@ Public Class frmReport_product
             dbConnection()
             ' sql = "select a.prodcode, a.prodname, a.prodcategory,a.prod_begin_qty,a.uom,b.qtyin,b.trasno,b.refno,b.locid,b.date from product a left outer join invetory_in b on a.prodcode = b.prodcode;"
             'sql = "select idproduct,prodcode,prodname,prod_description,prodcategory,uom,prodsupplier,prodsupprice,prodmarkup,prodsrp,prod_begin_qty,prod_reorder_qty from product where concat(prodcode,prodname) like '%' @ProdName '%'"
-            sql = "select * from product where concat(prodcode,prodname)like '%' @ProdName '%' order by prod_begin_qty asc;"
+            sql = "select * from product where concat(prodcode,prodname)like '%' @ProdName '%' order by prodname asc;"
             cmd = New MySqlCommand(sql, conn)
             With cmd
                 .Connection = conn
@@ -77,5 +77,9 @@ Public Class frmReport_product
             conn.Close()
 
         End Try
+    End Sub
+
+    Private Sub frmReport_product_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

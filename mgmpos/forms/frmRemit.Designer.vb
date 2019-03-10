@@ -41,6 +41,12 @@ Partial Class frmRemit
         Me.lblgrandtotal = New System.Windows.Forms.Label()
         Me.lbltotalcashonhand = New System.Windows.Forms.Label()
         Me.lbltotalsalesremittance = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lblvoided = New System.Windows.Forms.Label()
+        Me.lblcollection = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.lblcashlessvoid = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.dgCollections, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -169,7 +175,7 @@ Partial Class frmRemit
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(218, 316)
+        Me.Label5.Location = New System.Drawing.Point(159, 366)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(120, 13)
         Me.Label5.TabIndex = 10
@@ -178,7 +184,7 @@ Partial Class frmRemit
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(233, 340)
+        Me.Label6.Location = New System.Drawing.Point(174, 340)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(105, 13)
         Me.Label6.TabIndex = 11
@@ -187,7 +193,7 @@ Partial Class frmRemit
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(272, 366)
+        Me.Label7.Location = New System.Drawing.Point(464, 366)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(66, 13)
         Me.Label7.TabIndex = 12
@@ -196,7 +202,7 @@ Partial Class frmRemit
         'lblgrandtotal
         '
         Me.lblgrandtotal.AutoSize = True
-        Me.lblgrandtotal.Location = New System.Drawing.Point(344, 366)
+        Me.lblgrandtotal.Location = New System.Drawing.Point(536, 366)
         Me.lblgrandtotal.Name = "lblgrandtotal"
         Me.lblgrandtotal.Size = New System.Drawing.Size(28, 13)
         Me.lblgrandtotal.TabIndex = 15
@@ -205,7 +211,7 @@ Partial Class frmRemit
         'lbltotalcashonhand
         '
         Me.lbltotalcashonhand.AutoSize = True
-        Me.lbltotalcashonhand.Location = New System.Drawing.Point(344, 340)
+        Me.lbltotalcashonhand.Location = New System.Drawing.Point(285, 340)
         Me.lbltotalcashonhand.Name = "lbltotalcashonhand"
         Me.lbltotalcashonhand.Size = New System.Drawing.Size(28, 13)
         Me.lbltotalcashonhand.TabIndex = 14
@@ -214,17 +220,77 @@ Partial Class frmRemit
         'lbltotalsalesremittance
         '
         Me.lbltotalsalesremittance.AutoSize = True
-        Me.lbltotalsalesremittance.Location = New System.Drawing.Point(344, 316)
+        Me.lbltotalsalesremittance.Location = New System.Drawing.Point(285, 366)
         Me.lbltotalsalesremittance.Name = "lbltotalsalesremittance"
         Me.lbltotalsalesremittance.Size = New System.Drawing.Size(28, 13)
         Me.lbltotalsalesremittance.TabIndex = 13
         Me.lbltotalsalesremittance.Text = "0.00"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(409, 316)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(121, 13)
+        Me.Label8.TabIndex = 16
+        Me.Label8.Text = "Total Amount of Voided "
+        '
+        'lblvoided
+        '
+        Me.lblvoided.AutoSize = True
+        Me.lblvoided.Location = New System.Drawing.Point(536, 316)
+        Me.lblvoided.Name = "lblvoided"
+        Me.lblvoided.Size = New System.Drawing.Size(28, 13)
+        Me.lblvoided.TabIndex = 17
+        Me.lblvoided.Text = "0.00"
+        '
+        'lblcollection
+        '
+        Me.lblcollection.AutoSize = True
+        Me.lblcollection.Location = New System.Drawing.Point(285, 316)
+        Me.lblcollection.Name = "lblcollection"
+        Me.lblcollection.Size = New System.Drawing.Size(28, 13)
+        Me.lblcollection.TabIndex = 19
+        Me.lblcollection.Text = "0.00"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(196, 316)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(83, 13)
+        Me.Label10.TabIndex = 18
+        Me.Label10.Text = "Total Collection:"
+        '
+        'lblcashlessvoid
+        '
+        Me.lblcashlessvoid.AutoSize = True
+        Me.lblcashlessvoid.Location = New System.Drawing.Point(536, 340)
+        Me.lblcashlessvoid.Name = "lblcashlessvoid"
+        Me.lblcashlessvoid.Size = New System.Drawing.Size(28, 13)
+        Me.lblcashlessvoid.TabIndex = 21
+        Me.lblcashlessvoid.Text = "0.00"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(424, 340)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(106, 13)
+        Me.Label11.TabIndex = 20
+        Me.Label11.Text = "Total Cash less Void:"
         '
         'frmRemit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(761, 388)
+        Me.Controls.Add(Me.lblcashlessvoid)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.lblcollection)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.lblvoided)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.lblgrandtotal)
         Me.Controls.Add(Me.lbltotalcashonhand)
         Me.Controls.Add(Me.lbltotalsalesremittance)
@@ -242,7 +308,7 @@ Partial Class frmRemit
         Me.Controls.Add(Me.dgCollections)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frmRemit"
-        Me.Text = "frmRemit"
+        Me.Text = "Remittancce"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.dgCollections, System.ComponentModel.ISupportInitialize).EndInit()
@@ -270,4 +336,10 @@ Partial Class frmRemit
     Friend WithEvents lbltotalsalesremittance As Label
     Friend WithEvents Button3 As Button
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents lblvoided As Label
+    Friend WithEvents lblcollection As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents lblcashlessvoid As Label
+    Friend WithEvents Label11 As Label
 End Class

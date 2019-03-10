@@ -54,6 +54,10 @@ Public Class frmPOS
 
 
     Private Sub cmdNew_Click(sender As Object, e As EventArgs) Handles cmdNew.Click
+        Dim newYear As String
+        Dim dateAndTime As Date
+        dateAndTime = Now
+
         newTrans = True
         Dim transobjid As String = Guid.NewGuid().ToString("N")
         POStransobjid = transobjid
@@ -68,11 +72,17 @@ Public Class frmPOS
         txtPOSearch.Enabled = True
         txtPOSearch.Text = ""
         txtPOSearch.Focus()
-        retriveTransactionNo()
+        ' retriveTransactionNo()
         postotalamount = 0
         postotal = 0
+        'generatTransID()
+        '**************************************************
+        ' added this code to revise the format of the transno
 
-        generatTransID()
+        newYear = Format(dateAndTime, "yyyy").ToString
+        newNumber = getNewTransNo_Cash()
+
+        lbltransno.Text = newNumber + newYear
     End Sub
 
     Private Sub frmPOS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -231,7 +241,7 @@ Public Class frmPOS
             row = DGProduct.Rows(index)
             Pprodcode = row.Cells(0).Value.ToString
             Pprodname = row.Cells(1).Value.ToString()
-            Pamount = row.Cells(4).Value.ToString()
+            Pamount = row.Cells(5).Value.ToString()
             cmdVoid.Enabled = True
         End If
     End Sub
@@ -241,13 +251,14 @@ Public Class frmPOS
         Try
             If DGProduct.CurrentCell.Selected Then
                 DGProduct.Rows.Remove(row)
-
-                posvat = Pamount * vat
+                ' MsgBox(Pamount)
+                posvat = Pamount / 112 * 100 * vat
+                'MsgBox(posvat)
                 xpostotal = Pamount - posvat
                 lblGrandtotal.Text = Format((Double.Parse(lblGrandtotal.Text) - Pamount), "#,##0.00")
                 lblVat.Text = Format((Double.Parse(lblVat.Text) - posvat), "#,##0.00")
                 lbltotalamount.Text = Format((Double.Parse(lbltotalamount.Text) - xpostotal), "#,##0.00")
-                ' lblGrandtotal.Text = Double.Parse(lblGrandtotal.Text) - postotal
+                'lblGrandtotal.Text = Double.Parse(lblGrandtotal.Text) - postotal
 
                 If DGProduct.RowCount = -1 Or DGProduct.RowCount = 0 Then
                     lblVat.Text = "0.00"
@@ -267,6 +278,15 @@ Public Class frmPOS
 
     Private Sub cmdCharge_Click(sender As Object, e As EventArgs) Handles cmdCharge.Click
         modepayment = "term"
+        trans_source = "POS"
+        Dim newYear As String
+        Dim dateAndTime As Date
+        dateAndTime = Now
+
+        newYear = Format(dateAndTime, "yyyy").ToString
+        newNumber = getNewTransNo_Term()
+        lbltransno.Text = newNumber + newYear
+
         If lblGrandtotal.Text = "0.00" Then
             MsgBox("Cannot proceed!", vbInformation + vbOKOnly, "Cannot Proceed")
 
@@ -329,5 +349,14 @@ Public Class frmPOS
 
     Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles cmd_partialRemit.Click
 
+    End Sub
+
+    Private Sub Button5_Click_2(sender As Object, e As EventArgs) Handles Button5.Click
+        trans_source = "COLLECTION"
+        searchCostumer.ShowDialog()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        frmREX.ShowDialog()
     End Sub
 End Class

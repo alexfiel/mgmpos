@@ -677,6 +677,7 @@ Public Class frmDashboard
     Private Sub cmdCusNew_Click(sender As Object, e As EventArgs) Handles cmdCusNew.Click
         Dim transobjid As String = Guid.NewGuid().ToString("N")
         objid = transobjid
+        clearCustomer()
 
     End Sub
 
@@ -802,5 +803,23 @@ Public Class frmDashboard
 
     Private Sub frmDashboard_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         End
+    End Sub
+
+    Private Sub cboCustType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboCustType.SelectedIndexChanged
+        If cboCustType.Text = "Individual" Then
+            txtCustOrgName.Enabled = False
+            txtCustOrgName.Text = "N/A"
+        ElseIf cboCustType.Text = "Juridical" Then
+            txtCustOrgName.Enabled = True
+        ElseIf cboCustType.Text = "Organization" Then
+            txtCustOrgName.Enabled = True
+
+
+        End If
+    End Sub
+
+    Private Sub Button8_Click_1(sender As Object, e As EventArgs) Handles Button8.Click
+        frmPrintBarcode.ShowDialog()
+
     End Sub
 End Class
